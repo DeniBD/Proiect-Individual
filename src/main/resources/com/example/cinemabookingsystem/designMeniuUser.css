@@ -1,0 +1,60 @@
+.bg-meniu {
+    -fx-background-color: #4A5161;
+    -fx-border-color: #000;
+    -fx-border-width: .0px .9px .0px .9px;
+}
+.close {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+.close:hover {
+    -fx-background-color: #4A5161;
+}
+.minimize {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+.minimize:hover {
+    -fx-background-color: #4A5161;
+}
+.user-menu-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-text-fill: black;
+}
+.user-menu-button:hover {
+    -fx-background-color: #6b7280;
+}
+.antet {
+    -fx-background-color: #3F3F47;
+    -fx-border-color: #000;
+    -fx-border-width: .9px .9px .9px .9px;
+}
+.programFilme {
+    -fx-border-color: #000;
+    -fx-border-width: .0px .0px .9px .0px;
+}
+.detaliiCont {
+    -fx-background-color:#D8D8D8;
+}
+.textfield {
+    -fx-background-color: transparent;
+    /*-fx-text-inner-color: #fff; */
+    -fx-border-color: grey;
+    -fx-border-width: 0px 0px .7px 0px;
+    -fx-text-size:16px;
+}
+.textfield:focused {
+    -fx-border-color: grey;
+    -fx-border-width: 0px 0px 2px 0px;
+}
+.save-btn {
+    -fx-background-color: #ff3200;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+    -fx-cursor: hand;
+}
+.grid {
+    -fx-background-color: #D8D8D8;
+}

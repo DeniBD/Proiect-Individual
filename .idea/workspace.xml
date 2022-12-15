@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bc5f5b62-18c7-461b-ae28-52eb03b90a02" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CinemaBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CinemaBookingSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/hello-view.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2IGJuzYnXTQzck2ZQPnlo1lgcx1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "C:/Users/Denisa/Documents/uni stuff/p3-proiect-ir-sg2-DeniBD/src/main/java/com/example/cinemabookingsystem",
+    "last_opened_file_path": "C:/Users/Denisa/Downloads/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\images" />
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\src\main\java\com\example\cinemabookingsystem" />
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\src\main\java\images" />
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\src\images" />
+      <recent name="C:\Users\Denisa\Documents\uni stuff\PI\CinemaBookingSystem\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\src\main\resources\com\example\cinemabookingsystem" />
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\src\main\resources" />
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\src" />
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\src\main\java" />
+      <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\src\main\resources\com\example\cinemabookingsystem\images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CinemaBookingSystem">
+    <configuration name="CinemaBookingSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.cinemabookingsystem.CinemaBookingSystem" />
+      <module name="CinemaBookingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.cinemabookingsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.cinemabookingsystem.Main" />
+      <module name="CinemaBookingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.cinemabookingsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="p3-proiect-ir-sg2-DeniBD" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="p3-proiect-ir-sg2-DeniBD" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CinemaBookingSystem" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bc5f5b62-18c7-461b-ae28-52eb03b90a02" name="Changes" comment="" />
+      <created>1669802214855</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669802214855</updated>
+      <workItem from="1669802216168" duration="164000" />
+      <workItem from="1669802396109" duration="4324000" />
+      <workItem from="1669809121748" duration="20197000" />
+      <workItem from="1669839919823" duration="4897000" />
+      <workItem from="1669846457412" duration="2660000" />
+      <workItem from="1669892335420" duration="30000" />
+      <workItem from="1669894972584" duration="29437000" />
+      <workItem from="1669977120657" duration="39760000" />
+      <workItem from="1670024489953" duration="5092000" />
+      <workItem from="1670029772792" duration="4000" />
+      <workItem from="1670076821549" duration="1819000" />
+      <workItem from="1670084618375" duration="851000" />
+      <workItem from="1670247886436" duration="4224000" />
+      <workItem from="1670276688537" duration="423000" />
+      <workItem from="1670334775838" duration="177000" />
+      <workItem from="1670341618096" duration="5691000" />
+      <workItem from="1670357878538" duration="1628000" />
+      <workItem from="1670361507185" duration="12000" />
+      <workItem from="1670363688177" duration="18000" />
+      <workItem from="1670363747840" duration="960000" />
+      <workItem from="1670399280526" duration="416000" />
+      <workItem from="1670700276667" duration="6661000" />
+      <workItem from="1670761272044" duration="1067000" />
+      <workItem from="1670926858719" duration="6000" />
+      <workItem from="1670945327229" duration="11567000" />
+      <workItem from="1670957580082" duration="2172000" />
+      <workItem from="1671004041852" duration="22000" />
+      <workItem from="1671008888067" duration="101000" />
+      <workItem from="1671022442892" duration="496000" />
+      <workItem from="1671025279467" duration="626000" />
+      <workItem from="1671048205376" duration="6245000" />
+      <workItem from="1671059599808" duration="26000" />
+      <workItem from="1671067648256" duration="1790000" />
+      <workItem from="1671096636402" duration="1326000" />
+      <workItem from="1671098158841" duration="1016000" />
+    </task>
+    <task id="LOCAL-00001" summary="Bază proiect FX + interfață pentru Autentificare/Înregistrare">
+      <created>1669846723531</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669846723531</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Bază proiect FX + interfață pentru Autentificare/Înregistrare">
+      <created>1669846906232</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669846906232</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Clasa Film">
+      <created>1669988202459</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669988202459</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Clasa Utilizator + interfata isAdmin">
+      <created>1669988681987</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669988681987</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Clasa Program/Data + enum TipFilm">
+      <created>1669990078942</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669990078942</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Clasa Rezervare + enum TipUtilizator">
+      <created>1669990844754</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669990844754</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Interfata User">
+      <created>1670029443636</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670029443636</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Bază proiect FX + interfață pentru Autentificare/Înregistrare" />
+    <MESSAGE value="Clasa Film" />
+    <MESSAGE value="Clasa Utilizator + interfata isAdmin" />
+    <MESSAGE value="Clasa Program/Data + enum TipFilm" />
+    <MESSAGE value="Clasa Rezervare + enum TipUtilizator" />
+    <MESSAGE value="Interfata User" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interfata User" />
+  </component>
+</project>

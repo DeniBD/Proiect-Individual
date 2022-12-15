@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="meniuUser" prefHeight="650.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemabookingsystem.MeniuUserController">
+   <children>
+      <BorderPane prefHeight="668.0" prefWidth="1152.0" styleClass="programFilme" stylesheets="@designMeniuUser.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane prefHeight="650.0" prefWidth="240.0" styleClass="bg-meniu" stylesheets="@designMeniuUser.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="20.0" layoutY="164.0" prefHeight="40.0" prefWidth="200.0" text="Welcome" textFill="#180601">
+                     <font>
+                        <Font name="Berlin Sans FB" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="194.0" prefHeight="39.0" prefWidth="210.0" text="DENISA" textFill="#fafafa">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="butonProgramFilme" layoutX="5.0" layoutY="264.0" mnemonicParsing="false" onAction="#switchOptions" prefHeight="45.0" prefWidth="230.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css" text="  Program filme">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon glyphName="PLAY_CIRCLE" size="1.2EM" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="butonCoduriReducere" layoutX="5.0" layoutY="360.0" mnemonicParsing="false" onAction="#switchOptions" prefHeight="45.0" prefWidth="230.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css" text="  Coduri de reducere" visible="false">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon glyphName="TAGS" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="butonContulMeu" layoutX="5.0" layoutY="312.0" mnemonicParsing="false" onAction="#switchOptions" prefHeight="45.0" prefWidth="230.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css" text="  Contul meu">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon glyphName="GEAR" size="1.2em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="deconectareMeniuUser" layoutX="10.0" layoutY="597.0" mnemonicParsing="false" onAction="#deconectare" prefHeight="33.0" prefWidth="31.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="SIGN_OUT" size="1.5em" />
+                     </graphic>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="40.0" layoutY="595.0" prefHeight="38.0" prefWidth="94.0" text="Deconectare" textFill="#030000">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </left>
+         <top>
+            <AnchorPane fx:id="antet" prefHeight="29.0" prefWidth="1154.0" styleClass="antet" stylesheets="@designMeniuUser.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="closeMeniuUser" layoutX="1097.0" layoutY="1.0" mnemonicParsing="false" onAction="#closeMeniuUser" prefHeight="26.0" prefWidth="56.0" styleClass="close" stylesheets="@designMeniuUser.css">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" size="1.3em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="minimizeMeniuUser" layoutX="1055.0" layoutY="1.0" mnemonicParsing="false" onAction="#minimizeMeniuUser" prefHeight="26.0" prefWidth="40.0" styleClass="minimize" stylesheets="@designMeniuUser.css">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="MINUS" size="1.3em" />
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane fx:id="continut" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="contulMeu" prefHeight="634.4" prefWidth="914.4" styleClass="detaliiCont" stylesheets="@designMeniuUser.css" visible="false">
+                     <children>
+                        <Label alignment="CENTER" layoutX="329.0" layoutY="27.0" prefHeight="50.0" prefWidth="255.0" text="Detalii cont">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="170.0" layoutY="180.0" text="Username">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="170.0" layoutY="230.0" text="Email">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="170.0" layoutY="280.0" prefHeight="22.0" prefWidth="47.0" text="Parola">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="170.0" layoutY="330.0" text="Numar de telefon*">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="469.0" layoutY="160.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
+                        <TextField layoutX="469.0" layoutY="210.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" />
+                        <TextField layoutX="469.0" layoutY="310.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
+                        <PasswordField layoutX="469.0" layoutY="260.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" />
+                        <Button layoutX="379.0" layoutY="475.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="155.0" styleClass="save-btn" text="Salvează" textFill="#151414">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="programFilme" prefHeight="634.4" prefWidth="914.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox layoutY="50.0" prefHeight="583.0" prefWidth="914.0" spacing="50.0">
+                           <children>
+                              <ScrollPane fx:id="scroll" prefHeight="581.0" prefWidth="914.0" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <AnchorPane prefHeight="38.0" prefWidth="914.0">
+                           <children>
+                              <Label layoutX="12.0" layoutY="7.0" prefHeight="38.0" prefWidth="253.0" text="Program filme">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <FontAwesomeIcon glyphName="PLAY" layoutX="197.0" layoutY="33.0" size="1.7em" />
+                              <DatePicker fx:id="datePicker" layoutX="300.0" layoutY="12.0" onAction="#getDate" prefHeight="26.0" prefWidth="218.0" promptText="Alege o dată" />
+                              <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="539.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="ALEGE FORMATUL">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </MenuButton>
+                              <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="728.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="172.0" text="ALEGE GENUL">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="tabelaPreturi" layoutX="10.0" layoutY="10.0" prefHeight="644.8" prefWidth="924.8" styleClass="detaliiCont" stylesheets="@designMeniuUser.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="dataFilmDinProgram" alignment="CENTER" layoutX="59.0" layoutY="88.0" prefHeight="74.0" prefWidth="201.0" text="Label">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="titluFilmDinProgram" alignment="CENTER" layoutX="59.0" layoutY="14.0" prefHeight="74.0" prefWidth="398.0" text="Label">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tabelPreturi" layoutX="60.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="237.0" prefWidth="450.0">
+                          <columns>
+                            <TableColumn fx:id="tipClientCol" editable="false" prefWidth="150.0" resizable="false" text="Categorie" />
+                            <TableColumn fx:id="pretCol" editable="false" prefWidth="150.0" resizable="false" text="Pret" />
+                              <TableColumn fx:id="cantitateCol" editable="false" prefWidth="150.0" resizable="false" text="Cantitate" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
