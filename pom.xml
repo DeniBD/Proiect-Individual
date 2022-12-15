@@ -12,9 +12,18 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.8.2</junit.version>
+        <javafx.version>19</javafx.version>
+        <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
     </properties>
 
     <dependencies>
+<!--        //////////////////////////////////////////////////-->
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx</artifactId>
+            <version>8.2</version>
+        </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -57,11 +66,11 @@
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
+<!--                         Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.cinemabookingsystem/com.example.cinemabookingsystem.HelloApplication
+                                com.example.cinemabookingsystem/com.example.cinemabookingsystem.CinemaBookingSystem
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
