@@ -36,7 +36,7 @@
     -fx-border-width: .0px .0px .9px .0px;
 }
 .detaliiCont {
-    -fx-background-color:#D8D8D8;
+    -fx-background-color:white;
 }
 .textfield {
     -fx-background-color: transparent;
@@ -50,11 +50,26 @@
     -fx-border-width: 0px 0px 2px 0px;
 }
 .save-btn {
-    -fx-background-color: #ff3200;
+    -fx-background-color:#ff8c00;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
     -fx-cursor: hand;
 }
 .grid {
     -fx-background-color: #D8D8D8;
+}
+.screen-label {
+    -fx-background-color: #ff8c00;
+}
+.dispobinil-label {
+    -fx-background-color: green;
+}
+.indisponibil-label {
+    -fx-background-color: #6b7280;
+}
+.alegerea-ta-label {
+    -fx-background-color: #ff8c00;
+}
+.seat {
+    -fx-background-color: green;
 }

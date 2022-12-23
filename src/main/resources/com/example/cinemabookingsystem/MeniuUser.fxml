@@ -16,6 +16,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -35,20 +36,12 @@
                         <Font name="Berlin Sans FB" size="35.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="14.0" layoutY="194.0" prefHeight="39.0" prefWidth="210.0" text="DENISA" textFill="#fafafa">
+                  <Label fx:id="username" alignment="CENTER" layoutX="14.0" layoutY="194.0" prefHeight="39.0" prefWidth="210.0" textFill="#fafafa">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="butonProgramFilme" layoutX="5.0" layoutY="264.0" mnemonicParsing="false" onAction="#switchOptions" prefHeight="45.0" prefWidth="230.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css" text="  Program filme">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <graphic>
-                        <FontAwesomeIcon glyphName="PLAY_CIRCLE" size="1.2EM" />
-                     </graphic>
-                  </Button>
-                  <Button fx:id="butonCoduriReducere" layoutX="5.0" layoutY="360.0" mnemonicParsing="false" onAction="#switchOptions" prefHeight="45.0" prefWidth="230.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css" text="  Coduri de reducere" visible="false">
+                  <Button fx:id="butonCoduriReducere" layoutX="5.0" layoutY="408.0" mnemonicParsing="false" onAction="#switchOptions" prefHeight="45.0" prefWidth="230.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css" text="  Coduri de reducere" visible="false">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -64,16 +57,50 @@
                         <FontAwesomeIcon glyphName="GEAR" size="1.2em" />
                      </graphic>
                   </Button>
-                  <Button fx:id="deconectareMeniuUser" layoutX="10.0" layoutY="597.0" mnemonicParsing="false" onAction="#deconectare" prefHeight="33.0" prefWidth="31.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css">
+                  <AnchorPane fx:id="deconectare" layoutX="10.0" layoutY="595.0">
+                     <children>
+                        <Button fx:id="deconectareMeniuUser" layoutY="2.0" mnemonicParsing="false" onAction="#deconectare" prefHeight="33.0" prefWidth="31.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="SIGN_OUT" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="30.0" prefHeight="38.0" prefWidth="94.0" text="Deconectare" textFill="#030000">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="butonProgramFilme" layoutX="5.0" layoutY="264.0" mnemonicParsing="false" onAction="#switchOptions" prefHeight="45.0" prefWidth="230.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css" text="  Program filme">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
                      <graphic>
-                        <FontAwesomeIcon glyphName="SIGN_OUT" size="1.5em" />
+                        <FontAwesomeIcon glyphName="PLAY_CIRCLE" size="1.2EM" />
                      </graphic>
                   </Button>
-                  <Label alignment="CENTER" layoutX="40.0" layoutY="595.0" prefHeight="38.0" prefWidth="94.0" text="Deconectare" textFill="#030000">
+                  <Button fx:id="butonAutentificareMeniuUser" layoutX="5.0" layoutY="312.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css" text="   Autentificare" visible="false">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="15.0" />
                      </font>
-                  </Label>
+                     <graphic>
+                        <FontAwesomeIcon glyphName="USER" />
+                     </graphic>
+                  </Button>
+                  <AnchorPane fx:id="inapoi" layoutX="10.0" layoutY="595.0">
+                     <children>
+                        <Button fx:id="inapoiMeniuUser" layoutY="2.0" mnemonicParsing="false" onAction="#inapoi" prefHeight="33.0" prefWidth="31.0" styleClass="user-menu-button" stylesheets="@designMeniuUser.css">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="ARROW_LEFT" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="30.0" prefHeight="38.0" prefWidth="56.0" text="Înapoi" textFill="#030000">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </left>
@@ -96,6 +123,292 @@
          <center>
             <AnchorPane fx:id="continut" BorderPane.alignment="CENTER">
                <children>
+                  <AnchorPane fx:id="sala" prefHeight="634.4" prefWidth="915.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="310.0" layoutY="14.0" prefHeight="59.0" prefWidth="294.0" text="SELECTEAZĂ LOCURILE">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="258.0" layoutY="102.0" prefHeight="30.0" prefWidth="400.0" styleClass="screen-label" stylesheets="@designMeniuUser.css" text="SCREEN" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <HBox fx:id="r1" layoutX="107.0" layoutY="160.0" prefHeight="40.0" prefWidth="700.0" spacing="25.0" stylesheets="@designMeniuUser.css">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="1">
+                                 <opaqueInsets>
+                                    <Insets top="10.0" />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="2" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="3" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="4" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="5" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="6" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="7" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="8" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="9" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="10" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="r2" layoutX="107.0" layoutY="210.0" prefHeight="40.0" prefWidth="700.0" spacing="25.0" stylesheets="@designMeniuUser.css">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="1">
+                                 <opaqueInsets>
+                                    <Insets top="10.0" />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="2" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="3" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="4" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="5" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="6" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="7" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="8" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="9" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="10" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="r3" layoutX="107.0" layoutY="260.0" prefHeight="40.0" prefWidth="700.0" spacing="25.0" stylesheets="@designMeniuUser.css">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="1">
+                                 <opaqueInsets>
+                                    <Insets top="10.0" />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="2" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="3" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="4" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="5" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="6" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="7" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="8" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="9" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="10" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="r4" layoutX="107.0" layoutY="310.0" prefHeight="40.0" prefWidth="700.0" spacing="25.0">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="1">
+                                 <opaqueInsets>
+                                    <Insets top="10.0" />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="2" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="3" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="4" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="5" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="6" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="7" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="8" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="9" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="10" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="r5" layoutX="107.0" layoutY="360.0" prefHeight="40.0" prefWidth="700.0" spacing="25.0" stylesheets="@designMeniuUser.css">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="1">
+                                 <opaqueInsets>
+                                    <Insets top="10.0" />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="2" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="3" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="4" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="5" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="6" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="7" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="8" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="9" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="10" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="r6" layoutX="107.0" layoutY="410.0" prefHeight="40.0" prefWidth="700.0" spacing="25.0" stylesheets="@designMeniuUser.css">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="1">
+                                 <opaqueInsets>
+                                    <Insets top="10.0" />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="2" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="3" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="4" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="5" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="6" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="7" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="8" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="9" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="10" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox fx:id="r7" layoutX="107.0" layoutY="460.0" prefHeight="40.0" prefWidth="700.0" spacing="25.0" stylesheets="@designMeniuUser.css">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="1">
+                                 <opaqueInsets>
+                                    <Insets top="10.0" />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="2" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="3" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="4" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="5" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="6" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="7" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="8" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="9" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="seat" text="10" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <Label layoutX="40.0" layoutY="171.0" text="1">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="221.0" text="2">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="271.0" text="3">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="321.0" text="4">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="371.0" text="5">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="421.0" text="6">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="471.0" text="7">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="870.0" layoutY="172.0" text="1">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="870.0" layoutY="222.0" text="2">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="870.0" layoutY="271.0" text="3">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="870.0" layoutY="321.0" text="4">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="870.0" layoutY="371.0" text="5">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="870.0" layoutY="421.0" text="6">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="870.0" layoutY="471.0" text="7">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="358.0" layoutY="557.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="screen-label" stylesheets="@designMeniuUser.css" text="PASUL URMĂTOR">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="30.0" layoutY="530.0" prefHeight="10.0" prefWidth="15.0" styleClass="dispobinil-label" stylesheets="@designMeniuUser.css" />
+                        <Label layoutX="80.0" layoutY="530.0" text="Disponibil" />
+                        <Label layoutX="30.0" layoutY="550.0" prefHeight="10.0" prefWidth="15.0" styleClass="indisponibil-label" stylesheets="@designMeniuUser.css" />
+                        <Label layoutX="80.0" layoutY="550.0" text="Indisponibil" />
+                        <Label layoutX="30.0" layoutY="570.0" prefHeight="10.0" prefWidth="15.0" styleClass="alegerea-ta-label" stylesheets="@designMeniuUser.css" />
+                        <Label layoutX="80.0" layoutY="570.0" text="Alegerea ta" />
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="programFilme" prefHeight="634.4" prefWidth="914.4" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox layoutY="50.0" prefHeight="583.0" prefWidth="914.0" spacing="50.0">
+                           <children>
+                              <ScrollPane fx:id="scroll" prefHeight="581.0" prefWidth="914.0" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <AnchorPane prefHeight="38.0" prefWidth="914.0">
+                           <children>
+                              <Label layoutX="12.0" layoutY="7.0" prefHeight="38.0" prefWidth="253.0" text="Program filme">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <FontAwesomeIcon glyphName="PLAY" layoutX="197.0" layoutY="33.0" size="1.7em" />
+                              <DatePicker fx:id="datePicker" layoutX="300.0" layoutY="12.0" onAction="#getDate" prefHeight="26.0" prefWidth="218.0" promptText="Alege o dată" />
+                              <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="539.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="ALEGE FORMATUL">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="                                        2D" />
+                                  <MenuItem mnemonicParsing="false" text="                                         3D" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </MenuButton>
+                              <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="728.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="172.0" text="ALEGE GENUL">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Aventură" />
+                                  <MenuItem mnemonicParsing="false" text="Acțiune" />
+                                    <MenuItem mnemonicParsing="false" text="Comedie" />
+                                    <MenuItem mnemonicParsing="false" text="Familie" />
+                                    <MenuItem mnemonicParsing="false" text="SF" />
+                                </items>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </MenuButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
                   <AnchorPane fx:id="contulMeu" prefHeight="634.4" prefWidth="914.4" styleClass="detaliiCont" stylesheets="@designMeniuUser.css" visible="false">
                      <children>
                         <Label alignment="CENTER" layoutX="329.0" layoutY="27.0" prefHeight="50.0" prefWidth="255.0" text="Detalii cont">
@@ -134,65 +447,23 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="programFilme" prefHeight="634.4" prefWidth="914.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <VBox layoutY="50.0" prefHeight="583.0" prefWidth="914.0" spacing="50.0">
-                           <children>
-                              <ScrollPane fx:id="scroll" prefHeight="581.0" prefWidth="914.0" VBox.vgrow="ALWAYS">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </ScrollPane>
-                           </children>
-                        </VBox>
-                        <AnchorPane prefHeight="38.0" prefWidth="914.0">
-                           <children>
-                              <Label layoutX="12.0" layoutY="7.0" prefHeight="38.0" prefWidth="253.0" text="Program filme">
-                                 <font>
-                                    <Font name="System Bold" size="25.0" />
-                                 </font>
-                              </Label>
-                              <FontAwesomeIcon glyphName="PLAY" layoutX="197.0" layoutY="33.0" size="1.7em" />
-                              <DatePicker fx:id="datePicker" layoutX="300.0" layoutY="12.0" onAction="#getDate" prefHeight="26.0" prefWidth="218.0" promptText="Alege o dată" />
-                              <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="539.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="ALEGE FORMATUL">
-                                <items>
-                                  <MenuItem mnemonicParsing="false" text="Action 1" />
-                                  <MenuItem mnemonicParsing="false" text="Action 2" />
-                                </items>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </MenuButton>
-                              <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="728.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="172.0" text="ALEGE GENUL">
-                                <items>
-                                  <MenuItem mnemonicParsing="false" text="Action 1" />
-                                  <MenuItem mnemonicParsing="false" text="Action 2" />
-                                </items>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </MenuButton>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
                   <AnchorPane fx:id="tabelaPreturi" layoutX="10.0" layoutY="10.0" prefHeight="644.8" prefWidth="924.8" styleClass="detaliiCont" stylesheets="@designMeniuUser.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="dataFilmDinProgram" alignment="CENTER" layoutX="59.0" layoutY="88.0" prefHeight="74.0" prefWidth="201.0" text="Label">
+                        <Label fx:id="dataFilmDinProgram" alignment="CENTER" layoutX="14.0" layoutY="103.0" prefHeight="74.0" prefWidth="422.0" text="Label">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="titluFilmDinProgram" alignment="CENTER" layoutX="59.0" layoutY="14.0" prefHeight="74.0" prefWidth="398.0" text="Label">
+                        <Label fx:id="titluFilmDinProgram" alignment="CENTER" layoutX="258.0" layoutY="29.0" prefHeight="74.0" prefWidth="398.0" text="SELECTEAZĂ BILETELE">
                            <font>
-                              <Font size="26.0" />
+                              <Font name="System Bold" size="25.0" />
                            </font>
                         </Label>
-                        <TableView fx:id="tabelPreturi" layoutX="60.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="237.0" prefWidth="450.0">
+                        <TableView fx:id="tabelPreturi" layoutX="8.0" layoutY="193.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="900.0">
                           <columns>
-                            <TableColumn fx:id="tipClientCol" editable="false" prefWidth="150.0" resizable="false" text="Categorie" />
-                            <TableColumn fx:id="pretCol" editable="false" prefWidth="150.0" resizable="false" text="Pret" />
-                              <TableColumn fx:id="cantitateCol" editable="false" prefWidth="150.0" resizable="false" text="Cantitate" />
+                            <TableColumn fx:id="tipClientCol" editable="false" prefWidth="300.0" resizable="false" text="Categorie" />
+                            <TableColumn fx:id="pretCol" editable="false" prefWidth="300.0" resizable="false" text="Pret" />
+                              <TableColumn fx:id="cantitateCol" editable="false" minWidth="0.0" prefWidth="300.0" resizable="false" text="Cantitate" />
                           </columns>
                         </TableView>
                      </children>

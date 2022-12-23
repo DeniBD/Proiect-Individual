@@ -6,18 +6,16 @@ public class Film {
     private int id;
     private String ImgSrc;
     private String titlu;
-    private String descriere;
     private int durata;
     private String[] genuri;
 
     public Film() {
     }
 
-    public Film(int id, String ImgSrc, String titlu, String descriere, int durata, String[] genuri) {
+    public Film(int id, String ImgSrc, String titlu, int durata, String[] genuri) {
         this.id = id;
         this.ImgSrc = ImgSrc;
         this.titlu = titlu;
-        this.descriere = descriere;
         this.durata = durata;
         this.genuri = genuri;
     }
@@ -36,14 +34,6 @@ public class Film {
 
     public void setTitlu(String titlu) {
         this.titlu = titlu;
-    }
-
-    public String getDescriere() {
-        return descriere;
-    }
-
-    public void setDescriere(String descriere) {
-        this.descriere = descriere;
     }
 
     public int getDurata() {
@@ -76,7 +66,6 @@ public class Film {
                 " id = " + id +
                 " src = " + ImgSrc +
                 " nume = " + titlu +
-                " descriere = " + descriere +
                 " durata = " + durata +
                 " genuri = " + Arrays.toString(genuri);
     }

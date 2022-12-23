@@ -3,7 +3,7 @@ package com.example.cinemabookingsystem;
 public class Utilizator implements IsAdmin {
     private int id;
     private String username;
-    private String emial;
+    private String email;
     private String parola;
     private boolean isAdmin;
 
@@ -18,7 +18,7 @@ public class Utilizator implements IsAdmin {
     public Utilizator(int id, String username, String emial, String parola, boolean isAdmin) {
         this.id = id;
         this.username = username;
-        this.emial = emial;
+        this.email = emial;
         this.parola = parola;
         this.isAdmin = isAdmin;
     }
@@ -40,11 +40,11 @@ public class Utilizator implements IsAdmin {
     }
 
     public String getEmial() {
-        return emial;
+        return email;
     }
 
     public void setEmial(String emial) {
-        this.emial = emial;
+        this.email = emial;
     }
 
     public String getParola() {
@@ -64,8 +64,9 @@ public class Utilizator implements IsAdmin {
         return "Utilizator:" +
                 " id = " + id +
                 " username = " + username +
-                " emial = " + emial +
+                " emial = " + email +
                 " parola = " + parola +
                 " isAdmin = " + isAdmin;
     }
 }
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="formularInregistrare" prefHeight="650.0" prefWidth="1150.0" styleClass="bg-form" stylesheets="@designFormulare.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemabookingsystem.InregistrareController">
+   <children>
+      <Button fx:id="minimizeAutentificare1" layoutX="1055.0" mnemonicParsing="false" onAction="#minimizeInregistrare" prefHeight="26.0" prefWidth="40.0" styleClass="minimize" stylesheets="@designFormulare.css">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="MINUS" size="1.3em" />
+         </graphic>
+      </Button>
+      <Button fx:id="closeAutentificare1" layoutX="1095.0" mnemonicParsing="false" onAction="#closeInregistrare" prefHeight="26.0" prefWidth="56.0" styleClass="close" stylesheets="@designFormulare.css">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" size="1.3em" />
+         </graphic>
+      </Button>
+      <Label layoutX="524.0" layoutY="204.0" text="Înregistrare" textFill="#efe5e5">
+         <font>
+            <Font name="Berlin Sans FB" size="22.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="parolaInregistrare" layoutX="457.0" layoutY="364.0" prefHeight="35.0" prefWidth="234.0" promptText="Parolă" styleClass="textfield" stylesheets="@designFormulare.css">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="butonInregistrare" layoutX="520.0" layoutY="442.0" mnemonicParsing="false" onAction="#inregistrare" prefHeight="35.0" prefWidth="109.0" styleClass="login-btn" stylesheets="@designFormulare.css" text="Înregistrare">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="emailInregistrare" layoutX="458.0" layoutY="314.0" prefHeight="35.0" prefWidth="234.0" promptText="Adresa de email" styleClass="textfield" stylesheets="@designFormulare.css">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <FontAwesomeIcon glyphName="USER_PLUS" layoutX="534.0" layoutY="196.0" selectionFill="#1b1a1a" size="8.5em" wrappingWidth="68.800048828125" />
+      <TextField fx:id="usernameInregistrare" layoutX="458.0" layoutY="267.0" prefHeight="35.0" prefWidth="234.0" promptText="Username" styleClass="textfield" stylesheets="@designFormulare.css">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

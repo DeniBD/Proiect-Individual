@@ -13,15 +13,17 @@ import java.util.Objects;
 import static com.example.cinemabookingsystem.DatabaseConnection.getConnection;
 
 public class CinemaBookingSystem extends Application {
-    private double x = 0;
-    private double y = 0;
+    private static double x = 0;
+    private static double y = 0;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Formulare.fxml"));
-
-        getConnection();
-
-        //move the screen
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Index.fxml")));
+        stage.setScene(new Scene(root));
+        moveTheScreen(root, stage);
+        removeTheDefaultAntetBar(stage);
+        stage.show();
+    }
+    public static void moveTheScreen (Parent root, Stage stage) {
         root.setOnMousePressed(mouseEvent -> {
             x = mouseEvent.getSceneX();
             y = mouseEvent.getY();
@@ -30,10 +32,9 @@ public class CinemaBookingSystem extends Application {
             stage.setX(mouseEvent.getScreenX() - x);
             stage.setY(mouseEvent.getScreenY() - y);
         });
-        //remove the head bar
+    }
+    public static void removeTheDefaultAntetBar (Stage stage) {
         stage.initStyle(StageStyle.TRANSPARENT);
-        stage.setScene(new Scene(root, 1150, 650));
-        stage.show();
     }
     public static void main(String[] args) {
         launch();

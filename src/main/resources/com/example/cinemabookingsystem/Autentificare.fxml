@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="formularAutentificare" prefHeight="650.0" prefWidth="1150.0" styleClass="bg-form" stylesheets="@designFormulare.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemabookingsystem.AutentificareController">
+   <children>
+      <Button fx:id="minimizeAutentificare" layoutX="1055.0" mnemonicParsing="false" onAction="#minimizeAutentificare" prefHeight="26.0" prefWidth="40.0" styleClass="minimize" stylesheets="@designFormulare.css">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="MINUS" size="1.3em" />
+         </graphic>
+      </Button>
+      <Button fx:id="closeAutentificare" layoutX="1095.0" mnemonicParsing="false" onAction="#closeAutentificare" prefHeight="26.0" prefWidth="56.0" styleClass="close" stylesheets="@designFormulare.css">
+         <graphic>
+            <FontAwesomeIcon fill="#fcf9f9" glyphName="CLOSE" size="1.3em" />
+         </graphic>
+      </Button>
+      <FontAwesomeIcon glyphName="USER" layoutX="534.0" layoutY="196.0" selectionFill="#1b1a1a" size="8.5em" text="" wrappingWidth="82.40008544921875" />
+      <Label layoutX="514.0" layoutY="205.0" text="Autentificare" textFill="#efe5e5">
+         <font>
+            <Font name="Berlin Sans FB" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameAutentificare" layoutX="457.0" layoutY="272.0" prefHeight="35.0" prefWidth="234.0" promptText="Username" styleClass="textfield" stylesheets="@designFormulare.css">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="parolaAutentificare" layoutX="457.0" layoutY="319.0" prefHeight="35.0" prefWidth="234.0" promptText="Parolă" styleClass="textfield" stylesheets="@designFormulare.css">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="butonAutentificare" layoutX="519.0" layoutY="402.0" mnemonicParsing="false" onAction="#autentificare" prefHeight="35.0" prefWidth="109.0" styleClass="login-btn" stylesheets="@designFormulare.css" text="Autentificare">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

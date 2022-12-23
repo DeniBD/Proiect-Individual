@@ -4,15 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc5f5b62-18c7-461b-ae28-52eb03b90a02" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CinemaBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CinemaBookingSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/hello-view.fxml" beforeDir="false" />
+    <list default="true" id="bc5f5b62-18c7-461b-ae28-52eb03b90a02" name="Changes" comment="Versiune beta">
+      <change afterPath="$PROJECT_DIR$/images/craciun_de_cosmar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/f&amp;7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/kingsman.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/me_before_you.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/thor.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/AutentificareController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/InregistrareController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/SalaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/Autentificare.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/Index.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/Inregistrare.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/images/png-transparent-blue-background-with-white-step-1-text-overlay-usmle-step-1-computer-icons-symbol-usmle-step-3-symbol-misc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/images/png-transparent-step-1-thumbnail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/images/png-transparent-usmle-step-1-computer-icons-symbol-usmle-step-3-symbol-miscellaneous-blue-text-thumbnail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/images/png-transparent-usmle-step-1-computer-icons-usmle-step-3-symbol-symbol-miscellaneous-blue-text-thumbnail.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/CinemaBookingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/CinemaBookingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/FormulareController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Pret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Pret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Utilizator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Utilizator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/Formulare.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/MeniuUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/MeniuUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/designMeniuUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/designMeniuUser.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +71,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_directory_selection": "C:/Users/Denisa/Documents/uni stuff/p3-proiect-ir-sg2-DeniBD/src/main/java/com/example/cinemabookingsystem",
-    "last_opened_file_path": "C:/Users/Denisa/Downloads/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Denisa/Documents/uni stuff/PI/CinemaBookingSystem/src/main/java/com/example/cinemabookingsystem&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Denisa/Downloads/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Denisa\Documents\uni stuff\p3-proiect-ir-sg2-DeniBD\images" />
@@ -173,6 +193,10 @@
       <workItem from="1671067648256" duration="1790000" />
       <workItem from="1671096636402" duration="1326000" />
       <workItem from="1671098158841" duration="1016000" />
+      <workItem from="1671127414858" duration="737000" />
+      <workItem from="1671609086872" duration="41000" />
+      <workItem from="1671782289462" duration="6610000" />
+      <workItem from="1671790250886" duration="21690000" />
     </task>
     <task id="LOCAL-00001" summary="Bază proiect FX + interfață pentru Autentificare/Înregistrare">
       <created>1669846723531</created>
@@ -223,7 +247,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670029443636</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Versiune beta">
+      <created>1671099856087</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671099856087</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Versiune beta">
+      <created>1671099894098</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671099894098</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +286,7 @@
     <MESSAGE value="Clasa Program/Data + enum TipFilm" />
     <MESSAGE value="Clasa Rezervare + enum TipUtilizator" />
     <MESSAGE value="Interfata User" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interfata User" />
+    <MESSAGE value="Versiune beta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Versiune beta" />
   </component>
 </project>

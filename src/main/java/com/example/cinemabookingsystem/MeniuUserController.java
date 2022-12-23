@@ -25,14 +25,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-import static com.example.cinemabookingsystem.DatabaseConnection.getConnection;
-import static com.example.cinemabookingsystem.DatabaseConnection.viewTable;
+import static com.example.cinemabookingsystem.CinemaBookingSystem.moveTheScreen;
+import static com.example.cinemabookingsystem.CinemaBookingSystem.removeTheDefaultAntetBar;
+import static com.example.cinemabookingsystem.DatabaseConnection.*;
 
 public class MeniuUserController{
-    @FXML
-    private Button closeMeniuUser;
-    @FXML
-    private Button minimizeMeniuUser;
     @FXML
     private Button butonCoduriReducere;
     @FXML
@@ -46,10 +43,6 @@ public class MeniuUserController{
     @FXML
     private AnchorPane meniuUser;
     @FXML
-    private AnchorPane antetProgramFilme;
-    @FXML
-    private Button deconectareMeniuUser;
-    @FXML
     private Label titluFilmDinProgram;
     @FXML
     private Label dataFilmDinProgram;
@@ -61,8 +54,31 @@ public class MeniuUserController{
     private TableColumn<Pret, String> tipClientCol;
     @FXML
     private TableColumn<Pret, Double> pretCol;
-    private double x = 0;
-    private double y = 0;
+    @FXML
+    private Label username;
+    @FXML
+    private AnchorPane deconectare;
+    @FXML
+    private AnchorPane inapoi;
+
+    public MeniuUserController() throws SQLException {
+    }
+
+    public AnchorPane getInapoi() {
+        return inapoi;
+    }
+
+    public Button getButonContulMeu() {
+        return butonContulMeu;
+    }
+
+    public AnchorPane getDeconectare() {
+        return deconectare;
+    }
+
+    public void displayUsername(String u) {
+        username.setText(u);
+    }
     public void closeMeniuUser() {
         System.exit(0);
     }
@@ -76,32 +92,44 @@ public class MeniuUserController{
             generateGrid();
             contulMeu.setVisible(false);
             programFilme.setVisible(true);
-            tabelaPreturi.setVisible(false);
+            //tabelaPreturi.setVisible(false);
         } else if (event.getSource() == butonContulMeu) {
             programFilme.setVisible(false);
             contulMeu.setVisible(true);
-            tabelaPreturi.setVisible(false);
+            //tabelaPreturi.setVisible(false);
         }
     }
     public void deconectare() throws IOException{
         try {
+            username.setText("");
             meniuUser.getScene().getWindow().hide();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Formulare.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Index.fxml")));
             Stage stage = new Stage();
             Scene scene = new Scene(root);
-            //move the screen
-            root.setOnMousePressed(mouseEvent -> {
-                x = mouseEvent.getSceneX();
-                y = mouseEvent.getY();
-            });
-            root.setOnMouseDragged(mouseEvent -> {
-                stage.setX(mouseEvent.getScreenX() - x);
-                stage.setY(mouseEvent.getScreenY() - y);
-            });
-            //remove the head bar
-            stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(scene);
+
+            moveTheScreen(root, stage);
+            removeTheDefaultAntetBar(stage);
+
             stage.show();
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public void inapoi() throws IOException {
+        try {
+            meniuUser.getScene().getWindow().hide();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Index.fxml")));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+            moveTheScreen(root, stage);
+            removeTheDefaultAntetBar(stage);
+
+            stage.show();
+
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -113,32 +141,100 @@ public class MeniuUserController{
         String myFormattedDate = mydate.format(DateTimeFormatter.ofPattern("dd MM yyyy"));
         System.out.println(myFormattedDate);
     }
-    private List<Film> films() {
+    private List<Film> films() throws SQLException {
+        //List<Film> lf = new ArrayList<>(filmList(conn));
         List<Film> lf = new ArrayList<>();
-        for(int i = 0; i < 10; i++) {
-            Film film = new Film();
-            film.setImgSrc("images/avatar.jpg");
-            String[] genuri = new String[2];
-            genuri[0] = "gen1";
-            genuri[1] = "gen2";
-            film.setDescriere("fdvsdv");
-            film.setGenuri(genuri);
-            film.setDurata(120);
-            film.setId(i);
-            film.setTitlu("film" + i);
-            lf.add(film);
-        }
+        Film film1 = new Film();
+        film1.setImgSrc("images/avatar.jpg");
+        String[] genuri1 = new String[]{"SF", "Acțiune", "Aventuri"};
+        film1.setTitlu("Avatar");
+        film1.setGenuri(genuri1);
+        film1.setDurata(120);
+        film1.setId(1);
+        film1.setTitlu(film1.getTitlu());
+        lf.add(film1);
+
+        Film film2 = new Film();
+        film2.setImgSrc("images/pinocchio.jpg");
+        String[] genuri2 = new String[]{"Aventură", "Familie"};
+        film2.setTitlu("Pinocchio");
+        film2.setGenuri(genuri2);
+        film2.setDurata(200);
+        film2.setId(2);
+        film2.setTitlu(film2.getTitlu());
+        lf.add(film2);
+
+        Film film3 = new Film();
+        film3.setImgSrc("images/thor.jpg");
+        String[] genuri3 = new String[]{"Acțiune", "Fantezie", "Comedie"};
+        film3.setTitlu("Thor: Iubire şi tunete");
+        film3.setGenuri(genuri3);
+        film3.setDurata(250);
+        film3.setId(3);
+        film3.setTitlu(film3.getTitlu());
+        lf.add(film3);
+
+        Film film4 = new Film();
+        film4.setImgSrc("images/grinch.jpg");
+        String[] genuri4 = new String[]{"Animatie", "Familie", "Comedie"};
+        film4.setTitlu("Grinch");
+        film4.setGenuri(genuri4);
+        film4.setDurata(115);
+        film4.setId(3);
+        film4.setTitlu(film4.getTitlu());
+        lf.add(film4);
+
+        Film film5 = new Film();
+        film5.setImgSrc("images/harryp.jpg");
+        String[] genuri5 = new String[]{"Aventură", "Fantezie"};
+        film5.setTitlu("Harry Potter");
+        film5.setGenuri(genuri4);
+        film5.setDurata(115);
+        film5.setId(3);
+        film5.setTitlu(film5.getTitlu());
+        lf.add(film5);
+
+        Film film6 = new Film();
+        film6.setImgSrc("images/ffc.jpg");
+        String[] genuri6 = new String[]{"Romantic", "Comedie", "Familie"};
+        film6.setTitlu("Falling for Christmas");
+        film6.setGenuri(genuri6);
+        film6.setDurata(120);
+        film6.setId(1);
+        film6.setTitlu(film6.getTitlu());
+        lf.add(film6);
+
+        Film film7 = new Film();
+        film7.setImgSrc("images/jurassic.jpg");
+        String[] genuri7 = new String[]{"Aventură", "Actiune"};
+        film7.setTitlu("Jurassic World: Dominația");
+        film7.setGenuri(genuri6);
+        film7.setDurata(120);
+        film7.setId(1);
+        film7.setTitlu(film7.getTitlu());
+        lf.add(film7);
+
         return lf;
     }
     private List<Program> programs() {
         List<Program> lp = new ArrayList<>();
-        for(int i = 0; i < 20; i++) {
-            Program program = new Program(i, filmList.get(i % 10), new Data(10, 8, 2022), 3 + i, 20, TipFilm.DOI_D);
+        int m = 10;
+        for(int i = 0; i < 7; i++) {
+            Program program = new Program(i, filmList.get(i), new Data(8, 12, 2022), 15 + i, 20 + i * m, TipFilm.DOI_D);
+            Program program2 = new Program(i, filmList.get(i), new Data(8, 12, 2022), 13 + i, 20 + i * m, TipFilm.DOI_D);
+            Program program3 = new Program(i, filmList.get(i), new Data(8, 12, 2022), 12 + i, 20 + i * m, TipFilm.DOI_D);
+            Program program4 = new Program(i, filmList.get(i), new Data(8, 12, 2022), 17 + i, 20 + i * m, TipFilm.DOI_D);
             lp.add(program);
+            lp.add(program2);
+            lp.add(program3);
+            lp.add(program4);
         }
-        for(int i = 0; i < 10; i++) {
-            Program program = new Program(i, filmList.get(i % 10), new Data(10, 8, 2022), 3 + i, 20, TipFilm.TREI_D);
+        m = 5;
+        for(int i = 3; i < 7; i++) {
+            Program program = new Program(i, filmList.get(i), new Data(8, 12, 2022), 15 + i, 20 + i * (m+5), TipFilm.TREI_D);
+            Program program2 = new Program(i, filmList.get(i), new Data(8, 12, 2022), 19 + i, 20 + i * (m), TipFilm.TREI_D);
             lp.add(program);
+            lp.add(program2);
         }
         return lp;
     }
@@ -168,28 +264,22 @@ public class MeniuUserController{
         // GridPane gridPane = new GridPane();
 
         BorderPane borderPane = (BorderPane) meniuUser.getChildren().get(0);
-
         AnchorPane anchorPane1 = (AnchorPane) borderPane.getChildren().get(2);
-
         AnchorPane anchorPane2 = (AnchorPane) anchorPane1.getChildren().get(1);
-
         VBox vBox = (VBox) anchorPane2.getChildren().get(0);
-
         ScrollPane scrollPane = (ScrollPane) vBox.getChildren().get(0);
 
-
-
-        VBox fin = new VBox();
-        fin.setPadding(new Insets(20, 0, 20, 20));
-        fin.setSpacing(10);
+        VBox banners = new VBox();
+        banners.setPadding(new Insets(30, 0, 30, 30));
+        banners.setSpacing(20);
 
         for(Map.Entry<Film, List<Program>> m : programe.entrySet()) {
             HBox item = new HBox();
-            item.setSpacing(10);
+            item.setSpacing(20);
 
-            ImageView imageView = new ImageView(new Image("file:images/avatar.jpg"));
-            imageView.setFitHeight(326);
-            imageView.setFitWidth(220);
+            ImageView imageView = new ImageView(new Image("file:" + m.getKey().getImgSrc()));
+            imageView.setFitHeight(250);
+            imageView.setFitWidth(180);
 
             // imageView.setOnMouseClicked();
 
@@ -199,19 +289,20 @@ public class MeniuUserController{
             List<Program> l = m.getValue();
 
             VBox detaliiProgram = new VBox();
-            detaliiProgram.setSpacing(10);
+            //detaliiProgram.setSpacing(10);
 
             Label titlu = new Label(f.getTitlu());
-            titlu.setPrefHeight(50);
-            titlu.setPrefWidth(300);
+            titlu.setPrefHeight(30);
+            titlu.setPrefWidth(400);
             titlu.setFont(new Font(30));
-            titlu.setAlignment(Pos.CENTER);
+            //titlu.setAlignment(Pos.CENTER);
             String genuri = "";
             for(String gen : f.getGenuri()) {
                 genuri += gen + ", ";
             }
             genuri = genuri.substring(0, genuri.lastIndexOf(','));
             Label genuriDurata = new Label(genuri + " | " + f.getDurata() + " min");
+
             genuriDurata.setFont(new Font(20));
 
             detaliiProgram.getChildren().addAll(titlu, genuriDurata);
@@ -230,6 +321,8 @@ public class MeniuUserController{
                 VBox panouTip = new VBox();
 
                 Label tip = new Label(film.getKey() == TipFilm.DOI_D ? "2D" : "3D");
+                tip.setFont(Font.font(12));
+                tip.setPadding(new Insets(10));
                 HBox ore = new HBox();
                 ore.setSpacing(10);
 
@@ -237,9 +330,13 @@ public class MeniuUserController{
                     if(pr.getTipFilm() == film.getKey()) {
                         Button button = new Button(pr.getOraInceput() + ":" + pr.getMinutInceput());
                         button.setPadding(new Insets(10));
+                        button.setStyle("-fx-background-color:#ff8c00");
+                        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: grey"));
+                        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #ff8c00 "));
                         button.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent event) {
+                                /*
                                 String titlu = f.getTitlu() + " " + (pr.getTipFilm() == TipFilm.DOI_D ? "2D": "3D");
                                 titluFilmDinProgram.setText(titlu);
 
@@ -247,7 +344,7 @@ public class MeniuUserController{
                                 dataFilmDinProgram.setText(data);
 
                                 try {
-                                    List<Pret> preturi = viewTable(conn);
+                                    List<Pret> preturi = pretList(conn);
                                     for(Pret pret : preturi) {
                                         if(pr.getTipFilm() == TipFilm.DOI_D && pret.getTip_film().equals("2D")) {
                                             tipClientCol.getColumns().add(new TableColumn<>(pret.getTip_bilet()));
@@ -257,12 +354,15 @@ public class MeniuUserController{
                                 } catch (SQLException e) {
                                     throw new RuntimeException(e);
                                 }
-
+                                */
                                 tabelaPreturi.setVisible(true);
                                 programFilme.setVisible(false);
                             }
+
                         });
+
                         ore.getChildren().add(button);
+
                     }
                 }
 
@@ -275,10 +375,10 @@ public class MeniuUserController{
 
             item.getChildren().add(detaliiProgram);
 
-            fin.getChildren().add(item);
+            banners.getChildren().add(item);
         }
 
-        scrollPane.setContent(fin);
+        scrollPane.setContent(banners);
     }
 
 }

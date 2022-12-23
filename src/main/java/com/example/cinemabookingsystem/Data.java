@@ -4,7 +4,6 @@ public class Data {
     private int zi;
     private int luna;
     private int an;
-
     public Data() {
     }
 

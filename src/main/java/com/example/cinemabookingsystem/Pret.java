@@ -37,4 +37,12 @@ public class Pret {
     public void setPret(double pret) {
         this.pret = pret;
     }
+
+    @Override
+    public String toString() {
+        return "tip_film = " + tip_film +
+                " tip_bilet = " + tip_bilet +
+                " pret=" + pret +
+                "\n";
+    }
 }
