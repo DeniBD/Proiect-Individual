@@ -4,33 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc5f5b62-18c7-461b-ae28-52eb03b90a02" name="Changes" comment="Versiune beta">
-      <change afterPath="$PROJECT_DIR$/images/craciun_de_cosmar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/f&amp;7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/kingsman.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/me_before_you.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/thor.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/AutentificareController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/IndexController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/InregistrareController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/SalaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/Autentificare.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/Index.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/Inregistrare.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/images/png-transparent-blue-background-with-white-step-1-text-overlay-usmle-step-1-computer-icons-symbol-usmle-step-3-symbol-misc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/images/png-transparent-step-1-thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/images/png-transparent-usmle-step-1-computer-icons-symbol-usmle-step-3-symbol-miscellaneous-blue-text-thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/images/png-transparent-usmle-step-1-computer-icons-usmle-step-3-symbol-symbol-miscellaneous-blue-text-thumbnail.png" afterDir="false" />
+    <list default="true" id="bc5f5b62-18c7-461b-ae28-52eb03b90a02" name="Changes" comment="Versiune beta update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/SalaFilm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/f&amp;7.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/CinemaBookingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/CinemaBookingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Data.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Film.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/FormulareController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/InregistrareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/InregistrareController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Pret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Pret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Utilizator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Utilizator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/Formulare.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Rezervare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/Rezervare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/SalaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/SalaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/TipUtilizator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/TipUtilizator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/MeniuUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/MeniuUser.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/designMeniuUser.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/designMeniuUser.css" afterDir="false" />
     </list>
@@ -196,7 +183,14 @@
       <workItem from="1671127414858" duration="737000" />
       <workItem from="1671609086872" duration="41000" />
       <workItem from="1671782289462" duration="6610000" />
-      <workItem from="1671790250886" duration="21690000" />
+      <workItem from="1671790250886" duration="21823000" />
+      <workItem from="1671898839975" duration="1099000" />
+      <workItem from="1672230575225" duration="15946000" />
+      <workItem from="1672264231200" duration="1893000" />
+      <workItem from="1672309625136" duration="13315000" />
+      <workItem from="1672399330682" duration="3456000" />
+      <workItem from="1672429641200" duration="2143000" />
+      <workItem from="1672577374072" duration="13797000" />
     </task>
     <task id="LOCAL-00001" summary="Bază proiect FX + interfață pentru Autentificare/Înregistrare">
       <created>1669846723531</created>
@@ -261,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671099894098</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Versiune beta update">
+      <created>1671837280640</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671837280640</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +288,7 @@
     <MESSAGE value="Clasa Rezervare + enum TipUtilizator" />
     <MESSAGE value="Interfata User" />
     <MESSAGE value="Versiune beta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Versiune beta" />
+    <MESSAGE value="Versiune beta update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Versiune beta update" />
   </component>
 </project>

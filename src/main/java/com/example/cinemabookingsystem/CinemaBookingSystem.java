@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import static com.example.cinemabookingsystem.DatabaseConnection.getConnection;

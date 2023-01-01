@@ -6,19 +6,18 @@ public class Rezervare {
     private int idUtilizator;
     private int idProgram;
     private int nrBilete;
-    private int[] nrRand;
-    private int[] nrLoc;
+
+    private String[] locuriOcupate;
     private TipUtilizator tipUtilizator;
 
     public Rezervare() {
     }
 
-    public Rezervare(int idUtilizator, int idProgram, int nrBilete, int[] nrRand, int[] nrLoc, TipUtilizator tipUtilizator) {
+    public Rezervare(int idUtilizator, int idProgram, int nrBilete, String[] locuriOcupate, TipUtilizator tipUtilizator) {
         this.idUtilizator = idUtilizator;
         this.idProgram = idProgram;
         this.nrBilete = nrBilete;
-        this.nrRand = nrRand;
-        this.nrLoc = nrLoc;
+        this.locuriOcupate = locuriOcupate;
         this.tipUtilizator = tipUtilizator;
     }
 
@@ -38,20 +37,12 @@ public class Rezervare {
         this.idProgram = idProgram;
     }
 
-    public int[] getNrRand() {
-        return nrRand;
+    public String[] getNrRand() {
+        return locuriOcupate;
     }
 
-    public void setNrRand(int[] nrRand) {
-        this.nrRand = nrRand;
-    }
-
-    public int[] getNrLoc() {
-        return nrLoc;
-    }
-
-    public void setNrLoc(int[] nrLoc) {
-        this.nrLoc = nrLoc;
+    public void setNrRand(String[] locuriOcupate) {
+        this.locuriOcupate = locuriOcupate;
     }
 
     public TipUtilizator getTipUtilizator() {
@@ -75,8 +66,7 @@ public class Rezervare {
         return "Rezervare:" +
                 " idUtilizator = " + idUtilizator +
                 " idProgram = " + idProgram +
-                " nrRand = " + Arrays.toString(nrRand) +
-                " nrLoc = " + Arrays.toString(nrLoc) +
+                "locuri ocupate = " + Arrays.toString(locuriOcupate) +
                 " tipUtilizator = " + tipUtilizator;
     }
 }

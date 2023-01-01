@@ -41,7 +41,7 @@ public class InregistrareController {
     private ResultSet result;
     public void inregistrare(ActionEvent event) throws IOException, SQLException {
 
-        String sql = "INSERT INTO UTILIZATOR (ID_UTILIZATOR,NUME, PRENUME,EMAIL,PAROLA,IS_ADMIN,USERNAME) VALUES (?,'','',?,?,1,?)";
+        String sql = "INSERT INTO UTILIZATOR (ID_UTILIZATOR, EMAIL,PAROLA,IS_ADMIN,USERNAME) VALUES (?,?,?,1,?)";
         String query = "select COUNT(ID_UTILIZATOR) from UTILIZATOR";
         connect = DatabaseConnection.getConnection();
         try (Statement stmt = connect.createStatement()) {

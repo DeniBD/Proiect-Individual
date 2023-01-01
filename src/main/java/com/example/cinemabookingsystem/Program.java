@@ -1,31 +1,35 @@
 package com.example.cinemabookingsystem;
+import java.time.LocalDate;
 
 public class Program {
-    private int id;
+    private int id_program;
     private Film film;
-    private Data data;
+    private LocalDate data;
     private int oraInceput;
     private int minutInceput;
     private TipFilm tipFilm;
 
+    private int nrBileteDisponibile;
+
     public Program() {
     }
 
-    public Program(int id, Film film, Data data, int oraInceput, int minutInceput, TipFilm tipFilm) {
-        this.id = id;
+    public Program(int id_program, Film film, LocalDate data, int oraInceput, int minutInceput, TipFilm tipFilm, int nrBileteDisponibile) {
+        this.id_program = id_program;
         this.film = film;
         this.data = data;
         this.oraInceput = oraInceput;
         this.minutInceput = minutInceput;
         this.tipFilm = tipFilm;
+        this.nrBileteDisponibile = nrBileteDisponibile;
     }
 
     public int getId() {
-        return id;
+        return id_program;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id_program) {
+        this.id_program = id_program;
     }
 
     public Film getFilm() {
@@ -36,11 +40,11 @@ public class Program {
         this.film = film;
     }
 
-    public Data getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Data data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
@@ -68,14 +72,22 @@ public class Program {
         this.tipFilm = tipFilm;
     }
 
+    public int getNrBileteDisponibile() {
+        return nrBileteDisponibile;
+    }
+
+    public void setNrBileteDisponibile(int nrBileteDisponibile) {
+        this.nrBileteDisponibile = nrBileteDisponibile;
+    }
+
     @Override
     public String toString() {
         return "Program:" +
-                " id = " + id +
+                " id = " + id_program +
                 " film = " + film +
                 " data = " + data +
                 " oraInceput = " + oraInceput +
                 " minutInceput = " + minutInceput +
-                " tipFilm = " + tipFilm;
+                " tipFilm = " + tipFilm + "\n";
     }
 }

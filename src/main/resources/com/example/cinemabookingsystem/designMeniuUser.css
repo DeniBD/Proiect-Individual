@@ -73,3 +73,12 @@
 .seat {
     -fx-background-color: green;
 }
+.tabel-preturi {
+    -fx-border-color: #3F3F47;
+    -fx-border-width: .0px .0px .9px .0px;
+    -fx-border-style: dashed;
+}
+.orange-line {
+    -fx-border-color: #ff8c00;
+    -fx-border-width: .0px .0px 3px .0px;
+}
