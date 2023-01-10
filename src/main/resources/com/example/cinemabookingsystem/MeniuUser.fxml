@@ -6,8 +6,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -105,12 +104,12 @@
          <top>
             <AnchorPane fx:id="antet" prefHeight="29.0" prefWidth="1154.0" styleClass="antet" stylesheets="@designMeniuUser.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="closeMeniuUser" layoutX="1097.0" layoutY="1.0" mnemonicParsing="false" onAction="#closeMeniuUser" prefHeight="26.0" prefWidth="56.0" styleClass="close" stylesheets="@designMeniuUser.css">
+                  <Button fx:id="closeMeniuUser" layoutX="1097.0" layoutY="1.0" mnemonicParsing="false" onAction="#OnActionButonCloseMeniuUser" prefHeight="26.0" prefWidth="56.0" styleClass="close" stylesheets="@designMeniuUser.css">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" size="1.3em" />
                      </graphic>
                   </Button>
-                  <Button fx:id="minimizeMeniuUser" layoutX="1055.0" layoutY="1.0" mnemonicParsing="false" onAction="#minimizeMeniuUser" prefHeight="26.0" prefWidth="40.0" styleClass="minimize" stylesheets="@designMeniuUser.css">
+                  <Button fx:id="minimizeMeniuUser" layoutX="1055.0" layoutY="1.0" mnemonicParsing="false" onAction="#OnActionButonMinimizeMeniuUser" prefHeight="26.0" prefWidth="40.0" styleClass="minimize" stylesheets="@designMeniuUser.css">
                      <graphic>
                         <FontAwesomeIcon fill="WHITE" glyphName="MINUS" size="1.3em" />
                      </graphic>
@@ -354,8 +353,8 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="65.0" layoutY="108.0" prefHeight="18.0" prefWidth="150.0" text="Te rog selecteaza 5 locuri!" textFill="RED" />
-                        <Button layoutX="670.0" layoutY="548.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="PASUL URMĂTOR">
+                        <Label fx:id="LabelTotalLocuriDeSelectat" layoutX="65.0" layoutY="108.0" prefHeight="18.0" prefWidth="150.0" textFill="RED" />
+                        <Button layoutX="670.0" layoutY="548.0" mnemonicParsing="false" onAction="#OnActionButonPasulUrmator" prefHeight="40.0" prefWidth="200.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="PASUL URMĂTOR">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -370,13 +369,13 @@
                               <Label layoutX="50.0" layoutY="40.0" text="Alegerea ta" />
                            </children>
                         </AnchorPane>
-                        <Button layoutX="49.0" layoutY="548.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="PASUL ANTERIOR">
+                        <Button layoutX="49.0" layoutY="548.0" mnemonicParsing="false" onAction="#OnActionButonPasulAnterior" prefHeight="40.0" prefWidth="200.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="PASUL ANTERIOR">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="programFilme" prefHeight="634.4" prefWidth="914.4" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="programFilme" prefHeight="634.4" prefWidth="914.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <VBox layoutY="50.0" prefHeight="583.0" prefWidth="914.0" spacing="50.0">
                            <children>
@@ -395,28 +394,22 @@
                                  </font>
                               </Label>
                               <FontAwesomeIcon glyphName="PLAY" layoutX="197.0" layoutY="33.0" size="1.7em" />
-                              <DatePicker fx:id="datePicker" layoutX="300.0" layoutY="12.0" onAction="#getDate" prefHeight="26.0" prefWidth="218.0" promptText="Alege o dată" />
-                              <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="539.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="ALEGE FORMATUL">
-                                <items>
-                                  <MenuItem mnemonicParsing="false" text="                                        2D" />
-                                  <MenuItem mnemonicParsing="false" text="                                         3D" />
-                                </items>
+                              <DatePicker fx:id="calendar" layoutX="238.0" layoutY="12.0" onAction="#getDate" prefHeight="26.0" prefWidth="218.0" promptText="Alege o dată" />
+                              <MenuButton fx:id="alegeFormatul" alignment="CENTER" contentDisplay="CENTER" layoutX="467.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="ALEGE FORMATUL">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </MenuButton>
-                              <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="728.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="172.0" text="ALEGE GENUL">
-                                <items>
-                                  <MenuItem mnemonicParsing="false" text="Aventură" />
-                                  <MenuItem mnemonicParsing="false" text="Acțiune" />
-                                    <MenuItem mnemonicParsing="false" text="Comedie" />
-                                    <MenuItem mnemonicParsing="false" text="Familie" />
-                                    <MenuItem mnemonicParsing="false" text="SF" />
-                                </items>
+                              <MenuButton fx:id="alegeGenul" alignment="CENTER" contentDisplay="CENTER" layoutX="647.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="172.0" text="ALEGE GENUL">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </MenuButton>
+                              <Button alignment="CENTER" contentDisplay="CENTER" layoutX="829.0" layoutY="12.0" mnemonicParsing="false" onAction="#OnActionButonFiltreaza" prefHeight="26.0" text="FILTREAZĂ">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children>
@@ -428,176 +421,349 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Label>
-                        <Label layoutX="170.0" layoutY="180.0" text="Username">
+                        <Label layoutX="170.0" layoutY="250.0" text="Username">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="170.0" layoutY="230.0" text="Email">
+                        <Label layoutX="170.0" layoutY="300.0" text="Email">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="170.0" layoutY="280.0" prefHeight="22.0" prefWidth="47.0" text="Parola">
+                        <Label layoutX="170.0" layoutY="350.0" prefHeight="22.0" prefWidth="47.0" text="Parola">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="170.0" layoutY="330.0" text="Numar de telefon*">
+                        <Label layoutX="170.0" layoutY="400.0" text="Numar de telefon*">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="469.0" layoutY="160.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
-                        <TextField layoutX="469.0" layoutY="210.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" />
-                        <TextField layoutX="469.0" layoutY="310.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
-                        <PasswordField layoutX="469.0" layoutY="260.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" />
-                        <Button layoutX="379.0" layoutY="475.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="155.0" styleClass="save-btn" text="Salvează" textFill="#151414">
+                        <TextField fx:id="detaliiContUsername" layoutX="469.0" layoutY="230.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
+                        <TextField fx:id="detaliiContEmail" layoutX="469.0" layoutY="280.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" />
+                        <TextField fx:id="detaliiContNrTel" layoutX="469.0" layoutY="380.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
+                        <Button fx:id="salveazaDetaliiCont" layoutX="379.0" layoutY="506.0" mnemonicParsing="false" onAction="#OnActionButonSalveazaDetaliiCont" prefHeight="43.0" prefWidth="155.0" styleClass="save-btn" text="Salvează" textFill="#151414">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
+                        <TextField fx:id="detaliiContPrenume" layoutX="469.0" layoutY="180.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
+                        <Label layoutX="170.0" layoutY="200.0" text="Prenume">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="170.0" layoutY="150.0" text="Nume">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="detaliiContNume" layoutX="469.0" layoutY="130.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
+                        <TextField fx:id="detaliiContParola" layoutX="469.0" layoutY="330.0" prefHeight="40.0" prefWidth="265.0" styleClass="textfield" stylesheets="@designMeniuUser.css" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="tabelaPreturi" prefHeight="644.8" prefWidth="924.8" styleClass="detaliiCont" stylesheets="@designMeniuUser.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fx:id="tabelaPreturi" prefHeight="634.4" prefWidth="915.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <AnchorPane prefHeight="644.8" prefWidth="924.8" styleClass="detaliiCont" stylesheets="@designMeniuUser.css">
+                           <children>
+                              <Label fx:id="titluFilmDinProgram" layoutX="72.0" layoutY="112.0" prefHeight="40.0" prefWidth="770.0" textFill="#ff0202">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="dataFilmDinProgram" layoutX="72.0" layoutY="152.0" prefHeight="28.0" prefWidth="182.0" textFill="RED">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="258.0" layoutY="67.0" prefHeight="74.0" prefWidth="398.0" text="SELECTEAZĂ BILETELE">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <HBox layoutX="72.0" layoutY="199.0" prefHeight="50.0" prefWidth="770.0" spacing="290.0" styleClass="orange-line">
+                                 <children>
+                                    <Label prefWidth="70.0" text="Categorie">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label prefHeight="22.0" prefWidth="31.0" text="Preț">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Cantitate">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets top="13.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutX="72.0" layoutY="250.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="tabel-preturi" stylesheets="@designMeniuUser.css">
+                                 <children>
+                                    <Label prefWidth="245.0" text="COPIL">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label fx:id="copil">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="pretCopil" prefWidth="230.0" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <MenuButton fx:id="cantitateCopil" mnemonicParsing="false" text="0" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="13.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutX="72.0" layoutY="300.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="tabel-preturi" stylesheets="@designMeniuUser.css">
+                                 <children>
+                                    <Label prefWidth="245.0" text="ELEV">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label fx:id="elev">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="pretElev" prefWidth="230.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <MenuButton fx:id="cantitateElev" mnemonicParsing="false" text="0" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="13.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutX="72.0" layoutY="350.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="tabel-preturi">
+                                 <children>
+                                    <Label prefWidth="245.0" text="STUDENT">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label fx:id="student">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="pretStudent" prefWidth="230.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <MenuButton fx:id="cantitateStudent" mnemonicParsing="false" text="0" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="13.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutX="72.0" layoutY="400.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="tabel-preturi">
+                                 <children>
+                                    <Label prefWidth="245.0" text="ADULT">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label fx:id="adult">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="pretAdult" prefWidth="230.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <MenuButton fx:id="cantitateAdult" mnemonicParsing="false" text="0" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="13.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutX="72.0" layoutY="450.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="orange-line">
+                                 <children>
+                                    <Label prefWidth="245.0" text="PENSIONAR">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label fx:id="pensionar">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="pretPensionar" prefWidth="230.0">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <MenuButton fx:id="cantitatePensionar" mnemonicParsing="false" text="0" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="13.0" />
+                                 </padding>
+                              </HBox>
+                              <Button fx:id="butonSelecteazaLocurile" layoutX="382.0" layoutY="555.0" mnemonicParsing="false" onAction="#OnActionButonSelecteazaLocurile" prefHeight="40.0" prefWidth="150.0" styleClass="save-btn" text="SELECTEAZĂ LOCURILE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <AnchorPane fx:id="formularPlata" prefHeight="634.4" prefWidth="915.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="titluFilmDinProgram" layoutX="72.0" layoutY="112.0" prefHeight="40.0" prefWidth="770.0" textFill="#ff0202">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="dataFilmDinProgram" layoutX="72.0" layoutY="152.0" prefHeight="28.0" prefWidth="182.0" textFill="RED">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="258.0" layoutY="29.0" prefHeight="74.0" prefWidth="398.0" text="SELECTEAZĂ BILETELE">
+                        <Label layoutX="87.0" layoutY="54.0" text="PLASARE COMANDA" textFill="#615a5a">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
                         </Label>
-                        <HBox layoutX="72.0" layoutY="199.0" prefHeight="50.0" prefWidth="770.0" spacing="290.0" styleClass="orange-line">
-                           <children>
-                              <Label prefWidth="70.0" text="Categorie">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Pret">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Cantitate">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <padding>
-                              <Insets top="13.0" />
-                           </padding>
-                        </HBox>
-                        <HBox layoutX="72.0" layoutY="250.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="tabel-preturi" stylesheets="@designMeniuUser.css">
-                           <children>
-                              <Label prefWidth="240.0" text="COPIL">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <Label fx:id="copil" />
-                                 </graphic>
-                              </Label>
-                              <Label fx:id="pretCopil" prefWidth="230.0" text="31,99 lei" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Label>
-                              <MenuButton fx:id="cantitateCopil" mnemonicParsing="false" text="0" />
-                           </children>
-                           <padding>
-                              <Insets top="13.0" />
-                           </padding>
-                        </HBox>
-                        <HBox layoutX="72.0" layoutY="300.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="tabel-preturi" stylesheets="@designMeniuUser.css">
-                           <children>
-                              <Label prefWidth="240.0" text="ELEV">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <Label fx:id="elev" />
-                                 </graphic>
-                              </Label>
-                              <Label fx:id="pretElev" prefWidth="230.0" text="Label" />
-                              <MenuButton fx:id="cantitateElev" mnemonicParsing="false" text="0" />
-                           </children>
-                           <padding>
-                              <Insets top="13.0" />
-                           </padding>
-                        </HBox>
-                        <HBox layoutX="72.0" layoutY="350.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="tabel-preturi">
-                           <children>
-                              <Label prefWidth="240.0" text="STUDENT">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <Label fx:id="student" />
-                                 </graphic>
-                              </Label>
-                              <Label fx:id="pretStudent" prefWidth="230.0" text="Label" />
-                              <MenuButton fx:id="cantitateStudent" mnemonicParsing="false" text="0" />
-                           </children>
-                           <padding>
-                              <Insets top="13.0" />
-                           </padding>
-                        </HBox>
-                        <HBox layoutX="72.0" layoutY="400.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="tabel-preturi">
-                           <children>
-                              <Label prefWidth="240.0" text="ADULT">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <Label fx:id="adult" />
-                                 </graphic>
-                              </Label>
-                              <Label fx:id="pretAdult" prefWidth="230.0" text="Label" />
-                              <MenuButton fx:id="cantitateAdult" mnemonicParsing="false" text="0" />
-                           </children>
-                           <padding>
-                              <Insets top="13.0" />
-                           </padding>
-                        </HBox>
-                        <HBox layoutX="72.0" layoutY="450.0" prefHeight="50.0" prefWidth="770.0" spacing="110.0" styleClass="orange-line">
-                           <children>
-                              <Label prefWidth="240.0" text="PENSIONAR">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <Label fx:id="pensionar" />
-                                 </graphic>
-                              </Label>
-                              <Label fx:id="pretPensionar" prefWidth="230.0" text="Label" />
-                              <MenuButton fx:id="cantitatePensionar" mnemonicParsing="false" text="0" />
-                           </children>
-                           <padding>
-                              <Insets top="13.0" />
-                           </padding>
-                        </HBox>
-                        <Button layoutX="382.0" layoutY="556.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" styleClass="save-btn" text="SELECTEAZĂ LOCURILE">
+                        <Label layoutX="61.0" layoutY="140.0" text="Total: ">
                            <font>
-                              <Font name="System Bold" size="12.0" />
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pretTotal" layoutX="106.0" layoutY="171.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="61.0" layoutY="180.0" text="METODĂ PLATĂ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="51.0" layoutY="180.0" text="*" textFill="RED">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="61.0" layoutY="210.0" prefHeight="50.0" prefWidth="315.0" styleClass="metoda-plata" stylesheets="@designMeniuUser.css">
+                           <children>
+                              <RadioButton fx:id="radioButton" layoutX="5.0" layoutY="11.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="174.0" selected="true" text="Debit/credit card">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </RadioButton>
+                              <ImageView fitHeight="35.0" fitWidth="87.0" layoutX="212.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/cards.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="61.0" layoutY="280.0" text="Numar card">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="60.0" layoutY="305.0" prefHeight="36.0" prefWidth="300.0" styleClass="metoda-plata">
+                           <children>
+                              <TextField fx:id="numarCard" layoutX="37.0" layoutY="2.0" prefHeight="36.0" prefWidth="263.0" promptText="0000 0000 0000 0000" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fitHeight="37.0" fitWidth="36.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/card.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="61.0" layoutY="360.0" text="Dată de expirare">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="61.0" layoutY="440.0" text="CVV2/CVC2: ">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="60.0" layoutY="385.0" prefHeight="36.0" prefWidth="300.0" styleClass="metoda-plata">
+                           <children>
+                              <TextField fx:id="dataExpirare" layoutX="14.0" prefHeight="36.0" prefWidth="300.0" promptText="MM/YY" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="60.0" layoutY="465.0" prefHeight="36.0" prefWidth="300.0" styleClass="metoda-plata">
+                           <children>
+                              <TextField fx:id="CVV2" layoutX="14.0" layoutY="2.0" prefHeight="36.0" prefWidth="300.0" promptText="111" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="49.0" layoutY="280.0" text="*" textFill="#fc0505">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="51.0" layoutY="360.0" text="*" textFill="#f40000">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="51.0" layoutY="440.0" text="*" textFill="#ff0303">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="54.0" layoutY="525.0" text="* = câmpuri obligatorii" textFill="#ff0505">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="561.0" fitWidth="392.0" layoutX="490.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/popcorn.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="butonFinalizareComanda" layoutX="120.0" layoutY="571.0" mnemonicParsing="false" onAction="#finalizareComanda" prefHeight="42.0" prefWidth="158.0" styleClass="save-btn" text="Finalizare comandă" textFill="#4e4e4e">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </AnchorPane>
-                  <AnchorPane fx:id="formularPlata" prefHeight="634.4" prefWidth="915.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
                </children>
             </AnchorPane>
          </center>

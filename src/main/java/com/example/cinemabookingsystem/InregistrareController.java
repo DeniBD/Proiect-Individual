@@ -27,6 +27,12 @@ public class InregistrareController {
     private PasswordField parolaInregistrare;
     @FXML
     private TextField usernameInregistrare;
+    @FXML
+    private TextField nrTelInregistrare;
+    @FXML
+    private TextField numeInregistrare;
+    @FXML
+    private TextField prenumeInregistrare;
     public void closeInregistrare() {
         System.exit(0);
     }
@@ -41,7 +47,7 @@ public class InregistrareController {
     private ResultSet result;
     public void inregistrare(ActionEvent event) throws IOException, SQLException {
 
-        String sql = "INSERT INTO UTILIZATOR (ID_UTILIZATOR, EMAIL,PAROLA,IS_ADMIN,USERNAME) VALUES (?,?,?,1,?)";
+        String sql = "INSERT INTO UTILIZATOR (ID_UTILIZATOR,NUME, PRENUME, EMAIL,PAROLA,IS_ADMIN,USERNAME, NR_TEL) VALUES (?,?,?,?,?,0,?,?)";
         String query = "select COUNT(ID_UTILIZATOR) from UTILIZATOR";
         connect = DatabaseConnection.getConnection();
         try (Statement stmt = connect.createStatement()) {
@@ -50,11 +56,15 @@ public class InregistrareController {
             int nr_utilizatori = rs.getInt("COUNT(ID_UTILIZATOR)");
             prepare = connect.prepareStatement(sql);
             prepare.setInt(1, nr_utilizatori + 1);
-            prepare.setString(2, emailInregistrare.getText());
-            prepare.setString(3, parolaInregistrare.getText());
-            prepare.setString(4, usernameInregistrare.getText());
+            prepare.setString(2, numeInregistrare.getText());
+            prepare.setString(3, prenumeInregistrare.getText());
+            prepare.setString(4, emailInregistrare.getText());
+            prepare.setString(5, parolaInregistrare.getText());
+            prepare.setString(6, usernameInregistrare.getText());
+            prepare.setString(7, nrTelInregistrare.getText());
+
             Alert alert;
-            if(usernameInregistrare.getText().isEmpty() || emailInregistrare.getText().isEmpty() || parolaInregistrare.getText().isEmpty()) {
+            if(usernameInregistrare.getText().isEmpty() || emailInregistrare.getText().isEmpty() || parolaInregistrare.getText().isEmpty() || numeInregistrare.getText().isEmpty() || prenumeInregistrare.getText().isEmpty() || nrTelInregistrare.getText().isEmpty()) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Eroare înregistrare");
                 alert.setHeaderText(null);
@@ -67,6 +77,18 @@ public class InregistrareController {
                 alert.setContentText("Parolă invalidă");
                 alert.showAndWait();
 
+            } else if (!emailInregistrare.getText().matches("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-z]+$")) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Eroare înregistrare");
+                alert.setHeaderText(null);
+                alert.setContentText("Email invalid");
+                alert.showAndWait();
+            } else if (nrTelInregistrare.getText().length() != 10) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Eroare înregistrare");
+                alert.setHeaderText(null);
+                alert.setContentText("Număr de telefon invalid");
+                alert.showAndWait();
             } else {
                 prepare.execute();
                 alert = new Alert(Alert.AlertType.INFORMATION);
@@ -86,8 +108,6 @@ public class InregistrareController {
                     removeTheDefaultAntetBar(stage);
                     stage.show();
                 }
-
-
             }
 
         }catch (Exception e) {

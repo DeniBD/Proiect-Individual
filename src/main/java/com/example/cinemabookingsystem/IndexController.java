@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import static com.example.cinemabookingsystem.CinemaBookingSystem.moveTheScreen;
@@ -57,7 +58,12 @@ public class IndexController {
             meniuUserController.getDeconectare().setVisible(false);
             meniuUserController.getInapoi().setVisible(true);
             meniuUserController.getButonContulMeu().setVisible(false);
-
+            LocalDate date = LocalDate.of(2023, 1, 8);
+            meniuUserController.generateGrid(date);
+            meniuUserController.alegeFormatul();
+            meniuUserController.alegeGenul();
+            meniuUserController.displayUsername("");
+            meniuUserController.getCalendar().setDayCellFactory(meniuUserController.dayCellFactory);
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setScene(scene);

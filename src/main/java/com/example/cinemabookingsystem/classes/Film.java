@@ -1,4 +1,4 @@
-package com.example.cinemabookingsystem;
+package com.example.cinemabookingsystem.classes;
 
 import java.util.Arrays;
 

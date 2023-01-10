@@ -1,5 +1,6 @@
 package com.example.cinemabookingsystem;
 
+import com.example.cinemabookingsystem.classes.SalaFilm;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -24,5 +25,6 @@ public class SalaController {
     private Button r7c1, r7c2, r7c3, r7c4, r7c5, r7c6, r7c7;
     @FXML
     private AnchorPane sala;
+    private SalaFilm salaFilm;
 
 }

@@ -1,4 +1,4 @@
-package com.example.cinemabookingsystem;
+package com.example.cinemabookingsystem.classes;
 
 public interface IsAdmin {
     boolean isAdmin();

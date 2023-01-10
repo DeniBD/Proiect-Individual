@@ -1,8 +1,11 @@
 package com.example.cinemabookingsystem;
+import com.example.cinemabookingsystem.classes.*;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.Date;
 
 
 public class DatabaseConnection {
@@ -52,6 +55,24 @@ public class DatabaseConnection {
         }
         return null;
     }
+    public static Utilizator utilizatorConectat(Connection con, String username, String parola) throws SQLException {
+        String query = "SELECT * FROM UTILIZATOR WHERE USERNAME = \'" + username + "\' AND PAROLA = \'" + parola + "\'";
+        try (Statement statement = con.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(query);
+            resultSet.next();
+            int id = resultSet.getInt("ID_UTILIZATOR");
+            String nume = resultSet.getString("NUME");
+            String prenume = resultSet.getString("PRENUME");
+            int boolAdmin = resultSet.getInt("IS_ADMIN");
+            String email = resultSet.getString("EMAIL");
+            String nrTel = resultSet.getString("NR_TEL");
+            return new Utilizator(id, nume, prenume, nrTel, username, email, parola, (boolAdmin == 1 ? true : false));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static List<Film> filmList (Connection con) throws SQLException {
         String query1 = "select ID_FILM, TITLU, SRC_POZA, DURATA from FILM";
         try (Statement statement1 = con.createStatement()) {
@@ -78,7 +99,7 @@ public class DatabaseConnection {
                 }
                 //System.out.println(genuri.get(0));
                 String[] g = genuri.toArray(new String[0]);
-                filmList.add(new Film(id, titlu, srcImg, durata, g));
+                filmList.add(new Film(id, "images/" + srcImg, titlu, durata, g));
             }
             //System.out.println(filmList);
             return filmList;
@@ -103,7 +124,7 @@ public class DatabaseConnection {
         return null;
     }
     public static  List<Program> programsList (Connection con) throws SQLException {
-        String query1 = "select DISTINCT ID_PROGRAM, ID_FILM, ORA_INCEPUT, MINUT_INCEPUT, TIP_FILM, NR_BILETE_DISPONIBILE from PROGRAM";
+        String query1 = "select DISTINCT ID_PROGRAM, ID_FILM, ORA_INCEPUT, MINUT_INCEPUT, TIP_FILM, NR_BILETE_DISPONIBILE, LOCURI_OCUPATE from PROGRAM";
         try (Statement statement1 = con.createStatement()) {
             ResultSet resultSet1 = statement1.executeQuery(query1);
             List<Program> programsList = new ArrayList<>();
@@ -146,9 +167,25 @@ public class DatabaseConnection {
             String tipFilm = resultSet1.getString("TIP_FILM");
             TipFilm tF = tipFilm.equals("3D") ? TipFilm.TREI_D : TipFilm.DOI_D;
             int nrBileteDisponibile = resultSet1.getInt("NR_BILETE_DISPONIBILE");
+
+            String locuriOcupate = resultSet1.getString("LOCURI_OCUPATE");
+            String[] locuri = locuriOcupate.split(", ", 0);
+
+            SalaFilm salaFilm = new SalaFilm();
+            Class c = salaFilm.getClass();
+            for(int i = 0; i < locuri.length; i++) {
+                if(locuri[i].length() != 0) {
+                    String tmp = "setR" + locuri[i].substring(1);
+                    // System.out.println(tmp);
+                    Method m = c.getDeclaredMethod(tmp, boolean.class);
+                    m.invoke(salaFilm, true);
+                }
+            }
+            // System.out.println(salaFilm);
+
             List<LocalDate> dates = returnCalendarProgram(idProgram, getConnection());
             for (LocalDate d : dates) {
-                programsList.add(new Program(idProgram, film, d, oraInceput, minutInceput, tF, nrBileteDisponibile));
+                programsList.add(new Program(idProgram, film, d, oraInceput, minutInceput, tF, nrBileteDisponibile, salaFilm));
             }
 
             }
@@ -156,6 +193,12 @@ public class DatabaseConnection {
             return programsList;
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
         }
         //System.out.println("kjdvnijsdfvnd");
         return null;

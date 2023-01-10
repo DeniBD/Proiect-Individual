@@ -1,24 +1,25 @@
-package com.example.cinemabookingsystem;
+package com.example.cinemabookingsystem.classes;
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class Rezervare {
     private int idUtilizator;
     private int idProgram;
     private int nrBilete;
-
     private String[] locuriOcupate;
-    private TipUtilizator tipUtilizator;
+
+    private Map<TipUtilizator, Integer> map;
 
     public Rezervare() {
     }
 
-    public Rezervare(int idUtilizator, int idProgram, int nrBilete, String[] locuriOcupate, TipUtilizator tipUtilizator) {
+    public Rezervare(int idUtilizator, int idProgram, int nrBilete, String[] locuriOcupate, TipUtilizator tipUtilizator, Map<TipUtilizator, Integer> map) {
         this.idUtilizator = idUtilizator;
         this.idProgram = idProgram;
         this.nrBilete = nrBilete;
         this.locuriOcupate = locuriOcupate;
-        this.tipUtilizator = tipUtilizator;
+        this.map = map;
     }
 
     public int getIdUtilizator() {
@@ -45,14 +46,6 @@ public class Rezervare {
         this.locuriOcupate = locuriOcupate;
     }
 
-    public TipUtilizator getTipUtilizator() {
-        return tipUtilizator;
-    }
-
-    public void setTipUtilizator(TipUtilizator tipUtilizator) {
-        this.tipUtilizator = tipUtilizator;
-    }
-
     public int getNrBilete() {
         return nrBilete;
     }
@@ -61,12 +54,28 @@ public class Rezervare {
         this.nrBilete = nrBilete;
     }
 
+    public String[] getLocuriOcupate() {
+        return locuriOcupate;
+    }
+
+    public void setLocuriOcupate(String[] locuriOcupate) {
+        this.locuriOcupate = locuriOcupate;
+    }
+
+    public Map<TipUtilizator, Integer> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<TipUtilizator, Integer> map) {
+        this.map = map;
+    }
+
     @Override
     public String toString() {
         return "Rezervare:" +
                 " idUtilizator = " + idUtilizator +
                 " idProgram = " + idProgram +
                 "locuri ocupate = " + Arrays.toString(locuriOcupate) +
-                " tipUtilizator = " + tipUtilizator;
+                " tipuri bilet/cantitate = " + map;
     }
 }

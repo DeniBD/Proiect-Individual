@@ -82,3 +82,12 @@
     -fx-border-color: #ff8c00;
     -fx-border-width: .0px .0px 3px .0px;
 }
+.metoda-plata {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0.5, 0.0, 0.0);
+    -fx-background-color: white;
+    -fx-background-radius: 7px;
+}
+.adauga-poza-film {
+    //-fx-border-color: #000;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0.5, 0.5, 0.5);
+}
