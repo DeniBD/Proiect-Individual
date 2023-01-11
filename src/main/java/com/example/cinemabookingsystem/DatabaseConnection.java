@@ -171,33 +171,30 @@ public class DatabaseConnection {
             String locuriOcupate = resultSet1.getString("LOCURI_OCUPATE");
             String[] locuri = locuriOcupate.split(", ", 0);
 
-            SalaFilm salaFilm = new SalaFilm();
-            Class c = salaFilm.getClass();
-            for(int i = 0; i < locuri.length; i++) {
-                if(locuri[i].length() != 0) {
-                    String tmp = "setR" + locuri[i].substring(1);
-                    // System.out.println(tmp);
-                    Method m = c.getDeclaredMethod(tmp, boolean.class);
-                    m.invoke(salaFilm, true);
-                }
-            }
-            // System.out.println(salaFilm);
-
             List<LocalDate> dates = returnCalendarProgram(idProgram, getConnection());
             for (LocalDate d : dates) {
+                SalaFilm salaFilm = new SalaFilm();
+                Class c = salaFilm.getClass();
+                for(int i = 0; i < locuri.length; i++) {
+                    if(locuri[i].length() != 0) {
+                        String tmp = "setR" + locuri[i].substring(1);
+                        // System.out.println(tmp);
+                        Method m = c.getDeclaredMethod(tmp, boolean.class);
+                        m.invoke(salaFilm, true);
+                    }
+                }
+                //System.out.println(salaFilm);
+
                 programsList.add(new Program(idProgram, film, d, oraInceput, minutInceput, tF, nrBileteDisponibile, salaFilm));
             }
 
             }
             //System.out.println(programsList);
+            //System.out.println(programsList.size());
             return programsList;
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
         //System.out.println("kjdvnijsdfvnd");

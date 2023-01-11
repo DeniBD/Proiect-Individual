@@ -2,7 +2,6 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.lang.String?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +12,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="meniuAdmin" prefHeight="650.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemabookingsystem.MeniuAdminController">
@@ -107,6 +105,7 @@
                     <children>
                         <AnchorPane fx:id="editareStergerePrograme" prefHeight="634.4" prefWidth="915.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
+                                  <ScrollPane fx:id="scrollPrograme" layoutY="50.0" prefHeight="581.0" prefWidth="914.0" />
                                 <AnchorPane prefHeight="38.0" prefWidth="914.0">
                                     <children>
                                         <Label layoutX="12.0" layoutY="7.0" prefHeight="38.0" prefWidth="253.0" text="Program filme">
@@ -115,30 +114,22 @@
                                             </font>
                                         </Label>
                                         <FontAwesomeIcon glyphName="PLAY" layoutX="197.0" layoutY="33.0" size="1.7em" />
-                                        <DatePicker fx:id="calendar1" layoutX="238.0" layoutY="12.0" prefHeight="26.0" prefWidth="218.0" promptText="Alege o dată" />
-                                    </children>
-                                </AnchorPane>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane fx:id="editareStergereFilme" prefHeight="634.4" prefWidth="914.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                            <children>
-                                <VBox layoutY="50.0" prefHeight="583.0" prefWidth="914.0" spacing="50.0">
-                                    <children>
-                                        <ScrollPane fx:id="scroll" prefHeight="581.0" prefWidth="914.0" VBox.vgrow="ALWAYS">
-                                            <VBox.margin>
-                                                <Insets />
-                                            </VBox.margin>
-                                        </ScrollPane>
-                                    </children>
-                                </VBox>
-                                <AnchorPane prefHeight="38.0" prefWidth="914.0">
-                                    <children>
-                                        <Label layoutX="12.0" layoutY="7.0" prefHeight="38.0" prefWidth="253.0" text="Filme">
-                                            <font>
-                                                <Font name="System Bold" size="25.0" />
-                                            </font>
-                                        </Label>
-                                        <FontAwesomeIcon glyphName="PLAY" layoutX="85.0" layoutY="34.0" size="1.7em" />
+                                        <DatePicker fx:id="calendar" layoutX="232.0" layoutY="12.0" onAction="#getDate" prefHeight="26.0" prefWidth="218.0" promptText="Alege o dată" />
+                              <MenuButton fx:id="alegeFormatul" alignment="CENTER" contentDisplay="CENTER" layoutX="464.0" layoutY="12.0" mnemonicParsing="false" onAction="#alegeFormatul" prefHeight="26.0" prefWidth="169.0" text="ALEGE FORMATUL">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </MenuButton>
+                              <MenuButton fx:id="alegeGenul" alignment="CENTER" contentDisplay="CENTER" layoutX="646.0" layoutY="12.0" mnemonicParsing="false" onAction="#alegeGenul" prefHeight="26.0" prefWidth="172.0" text="ALEGE GENUL">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </MenuButton>
+                              <Button alignment="CENTER" contentDisplay="CENTER" layoutX="834.0" layoutY="12.0" mnemonicParsing="false" onAction="#OnActionButonFiltreaza" prefHeight="26.0" text="FILTREAZĂ">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
                                     </children>
                                 </AnchorPane>
                             </children>
@@ -197,7 +188,63 @@
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="adaugaPrograme" prefHeight="633.6" prefWidth="915.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane fx:id="editareProgram" prefHeight="633.6" prefWidth="915.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane prefHeight="38.0" prefWidth="914.0">
+                           <children>
+                              <Label layoutX="12.0" layoutY="7.0" prefHeight="38.0" prefWidth="253.0" text="Editare program">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <FontAwesomeIcon glyphName="PLAY" layoutX="213.0" layoutY="36.0" size="1.7em" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutY="50.0" prefHeight="583.0" prefWidth="915.0">
+                           <children>
+                              <AnchorPane layoutX="58.0" layoutY="45.0" styleClass="metoda-plata" stylesheets="@designMeniuUser.css">
+                                 <children>
+                                    <ImageView fx:id="editareImgSrcProgram" fitHeight="251.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="341.0" layoutY="90.0" prefHeight="35.0" prefWidth="80.0" text="Film: ">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="341.0" layoutY="135.0" prefHeight="35.0" prefWidth="80.0" text="Tip film:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="341.0" layoutY="180.0" prefHeight="35.0" prefWidth="106.0" text="Ora început:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="butonEditareProgram" layoutX="421.0" layoutY="454.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="Editare program">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                              <MenuButton fx:id="filme" layoutX="480.0" layoutY="90.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="MenuButton" />
+                              <MenuButton fx:id="tipuriFilme" layoutX="480.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="MenuButton" />
+                              <TextField fx:id="oraInceput" layoutX="480.0" layoutY="180.0" prefHeight="30.0" prefWidth="318.0" />
+                              <TextField fx:id="minutInceput" layoutX="480.0" layoutY="225.0" prefHeight="30.0" prefWidth="318.0" />
+                              <Label layoutX="341.0" layoutY="225.0" prefHeight="35.0" prefWidth="118.0" text="Minut început:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="341.0" layoutY="270.0" prefHeight="35.0" prefWidth="100.0" text="Sală film: ">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <MenuButton fx:id="saliFilme" layoutX="480.0" layoutY="275.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="MenuButton" />
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
                   <AnchorPane fx:id="editareFilm" prefHeight="633.6" prefWidth="915.2" visible="false">
                      <children>
                         <AnchorPane prefHeight="38.0" prefWidth="914.0">
@@ -212,7 +259,11 @@
                         </AnchorPane>
                         <AnchorPane layoutY="51.0" prefHeight="583.0" prefWidth="915.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
                            <children>
-                              <ImageView fx:id="editareImgSrcFilm" fitHeight="251.0" fitWidth="188.0" layoutX="58.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
+                              <AnchorPane layoutX="58.0" layoutY="45.0" styleClass="metoda-plata" stylesheets="@designMeniuUser.css">
+                                 <children>
+                                    <ImageView fx:id="editareImgSrcFilm" fitHeight="251.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </AnchorPane>
                               <Label layoutX="341.0" layoutY="89.0" prefHeight="35.0" prefWidth="80.0" text="Titlu: ">
                                  <font>
                                     <Font size="18.0" />
@@ -228,14 +279,14 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="editareTitluFilm" layoutX="446.0" layoutY="91.0" prefHeight="30.0" prefWidth="318.0" />
-                              <TextField fx:id="editareDurataFilm" layoutX="446.0" layoutY="138.0" prefHeight="30.0" prefWidth="318.0" />
+                              <TextField fx:id="editareTitluFilm" focusTraversable="false" layoutX="446.0" layoutY="91.0" prefHeight="30.0" prefWidth="318.0" />
+                              <TextField fx:id="editareDurataFilm" focusTraversable="false" layoutX="446.0" layoutY="138.0" prefHeight="30.0" prefWidth="318.0" />
                               <Button fx:id="butonEditareFilm" layoutX="421.0" layoutY="404.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="Editare film">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Button>
-                              <Label fx:id="genuriCurente" layoutX="444.0" layoutY="247.0" prefHeight="30.0" prefWidth="318.0" styleClass="alegerea-ta-label" stylesheets="@designMeniuUser.css" />
+                              <Label fx:id="genuriCurente" layoutX="444.0" layoutY="247.0" prefHeight="30.0" prefWidth="318.0" styleClass="metoda-plata" stylesheets="@designMeniuUser.css" />
                               <MenuButton fx:id="editareGenuriFilm" alignment="CENTER" layoutX="444.0" layoutY="192.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="ALEGE GENURILE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -243,6 +294,21 @@
                               </MenuButton>
                            </children>
                         </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="editareStergereFilme" prefHeight="634.4" prefWidth="915.2" visible="false">
+                     <children>
+                        <AnchorPane prefHeight="38.0" prefWidth="914.0">
+                           <children>
+                              <Label layoutX="12.0" layoutY="7.0" prefHeight="38.0" prefWidth="253.0" text="Filme">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <FontAwesomeIcon glyphName="PLAY" layoutX="85.0" layoutY="34.0" size="1.7em" />
+                           </children>
+                        </AnchorPane>
+                        <ScrollPane fx:id="scrollFilme" layoutY="50.0" prefHeight="581.0" prefWidth="914.0" />
                      </children>
                   </AnchorPane>
                     </children>

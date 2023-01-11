@@ -105,6 +105,7 @@ public class AutentificareController {
                         Parent root = loader.load();
                         MeniuAdminController meniuAdminController = loader.getController();
                         meniuAdminController.generateGridFilme();
+                        meniuAdminController.getCalendar().setDayCellFactory(meniuAdminController.dayCellFactory);
                         Stage stage = new Stage();
                         Scene scene = new Scene(root);
                         stage.setScene(scene);

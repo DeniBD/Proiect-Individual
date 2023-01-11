@@ -43,25 +43,18 @@ public class InregistrareController {
     // tools for database
     private Connection connect;
     private PreparedStatement prepare;
-    private Statement statement;
-    private ResultSet result;
     public void inregistrare(ActionEvent event) throws IOException, SQLException {
 
-        String sql = "INSERT INTO UTILIZATOR (ID_UTILIZATOR,NUME, PRENUME, EMAIL,PAROLA,IS_ADMIN,USERNAME, NR_TEL) VALUES (?,?,?,?,?,0,?,?)";
-        String query = "select COUNT(ID_UTILIZATOR) from UTILIZATOR";
+        String sql = "INSERT INTO UTILIZATOR (NUME, PRENUME, EMAIL,PAROLA,IS_ADMIN,USERNAME, NR_TEL) VALUES (?,?,?,?,0,?,?)";
         connect = DatabaseConnection.getConnection();
         try (Statement stmt = connect.createStatement()) {
-            ResultSet rs = stmt.executeQuery(query);
-            rs.next();
-            int nr_utilizatori = rs.getInt("COUNT(ID_UTILIZATOR)");
             prepare = connect.prepareStatement(sql);
-            prepare.setInt(1, nr_utilizatori + 1);
-            prepare.setString(2, numeInregistrare.getText());
-            prepare.setString(3, prenumeInregistrare.getText());
-            prepare.setString(4, emailInregistrare.getText());
-            prepare.setString(5, parolaInregistrare.getText());
-            prepare.setString(6, usernameInregistrare.getText());
-            prepare.setString(7, nrTelInregistrare.getText());
+            prepare.setString(1, numeInregistrare.getText());
+            prepare.setString(2, prenumeInregistrare.getText());
+            prepare.setString(3, emailInregistrare.getText());
+            prepare.setString(4, parolaInregistrare.getText());
+            prepare.setString(5, usernameInregistrare.getText());
+            prepare.setString(6, nrTelInregistrare.getText());
 
             Alert alert;
             if(usernameInregistrare.getText().isEmpty() || emailInregistrare.getText().isEmpty() || parolaInregistrare.getText().isEmpty() || numeInregistrare.getText().isEmpty() || prenumeInregistrare.getText().isEmpty() || nrTelInregistrare.getText().isEmpty()) {
