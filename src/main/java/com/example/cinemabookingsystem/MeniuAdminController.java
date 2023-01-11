@@ -97,6 +97,18 @@ public class MeniuAdminController {
     private ScrollPane scrollPrograme;
     @FXML
     private ScrollPane scrollFilme;
+    @FXML
+    private TextField titluAdaugareFilm;
+    @FXML
+    private TextField durataAdaugareFilm;
+    @FXML
+    private MenuButton genuriAdaugareFilm;
+    @FXML
+    private Label genuriCurenteAdaugareFilm;
+
+
+
+
 
     public MeniuAdminController() throws SQLException {
 
@@ -124,7 +136,16 @@ public class MeniuAdminController {
         //System.out.println(map);
         return map;
     }
-
+    public void OnActionsButonSalvareAdaugaFilm() {
+       if(titluAdaugareFilm.getText().isEmpty() || durataAdaugareFilm.getText().isEmpty()) {
+           Alert alert;
+           alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.setTitle("Mesaj de informare");
+           alert.setContentText("Vă rugam completați toate câmpurile! ");
+           alert.showAndWait();
+       } else {
+       }
+    }
     public void OnActionButonMinimizeMeniuAdmin() {
         Stage stage = (Stage) meniuAdmin.getScene().getWindow();
         stage.setIconified(true);
@@ -159,6 +180,7 @@ public class MeniuAdminController {
             editareStergerePrograme.setVisible(false);
             editareFilm.setVisible(false);
             editareProgram.setVisible(false);
+            editareFilm.setVisible(false);
             editareStergereFilme.setVisible(true);
         } else if (event.getSource() == butonProgrameMeniuAdmin) {
             alegeFormatul();
@@ -168,14 +190,19 @@ public class MeniuAdminController {
             //adaugaPrograme.setVisible(false);
             editareStergereFilme.setVisible(false);
             editareProgram.setVisible(false);
+            editareFilm.setVisible(false);
             editareStergerePrograme.setVisible(true);
         } else if (event.getSource() == butonAdaugaFilme) {
             //adaugaPrograme.setVisible(false);
+            editareFilm.setVisible(false);
             editareStergereFilme.setVisible(false);
             editareStergerePrograme.setVisible(false);
             editareProgram.setVisible(false);
             adaugaFilme.setVisible(true);
+            genuriSelectate = new ArrayList<>();
+            adaugareGenuriMeniuItem(genuriAdaugareFilm, genuriCurenteAdaugareFilm);
         } else if (event.getSource() == butonAdaugaPrograme) {
+            editareFilm.setVisible(false);
             editareStergereFilme.setVisible(false);
             editareStergerePrograme.setVisible(false);
             editareProgram.setVisible(false);
@@ -215,16 +242,16 @@ public class MeniuAdminController {
         for(String gen : film.getGenuri()) {
             genuriSelectate.add(gen);
         }
-        setLabelGenuri();
+        setLabelGenuri(genuriCurente);
     }
 
-    public void setLabelGenuri() {
+    public void setLabelGenuri(Label label) {
         String genuri = "";
         for(String gen : genuriSelectate) {
             genuri += gen + ", ";
         }
         genuri = genuri.substring(0, genuri.lastIndexOf(','));
-        genuriCurente.setText(genuri);
+        label.setText(genuri);
     }
     public void editareFilm(Film film) {
         String sql1 = "UPDATE FILM SET TITLU = ?, DURATA = ? WHERE ID_FILM = " + film.getId();
@@ -299,7 +326,7 @@ public class MeniuAdminController {
                 editareStergereFilme.setVisible(false);
                 editareFilm.setVisible(true);
                 schimbareDetaliiFilm(film);
-                adaugareGenuriMeniuItem();
+                adaugareGenuriMeniuItem(editareGenuriFilm, genuriCurente);
                 butonEditareFilm.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
@@ -314,8 +341,15 @@ public class MeniuAdminController {
             }
         });
     }
-    public void adaugareGenuriMeniuItem() {
+    public void adaugareGenuriMeniuItem(MenuButton menuButton, Label label) {
         String [] genuri = {"Acțiune", "Aventură", "Comedie", "Familie", "Crimă", "Documentar", "Dramă", "Fantastic", "Horror", "Muzical", "Dragoste", "SF", "Thriller"};
+
+        if(menuButton.getItems().size() != 0) {
+            for (int i = 0; i < genuri.length; i++) {
+                menuButton.getItems().remove(0);
+            }
+        }
+
         for(String gen : genuri) {
             MenuItem menuItem = new MenuItem();
             menuItem.setText(gen);
@@ -330,16 +364,16 @@ public class MeniuAdminController {
                         //  Set Not Pressed (Default)
                         menuItem.setStyle("-fx-background-color: white");
                         genuriSelectate.remove(gen);
-                        setLabelGenuri();
+                        setLabelGenuri(label);
                     } else {
                         //  Set Pressed
                         menuItem.setStyle("-fx-background-color: grey");
                         genuriSelectate.add(gen);
-                        setLabelGenuri();
+                        setLabelGenuri(label);
                     }
                 }
             });
-            editareGenuriFilm.getItems().add(menuItem);
+            menuButton.getItems().add(menuItem);
         }
     }
     private List<Film> getFilmsListOnDateX (LocalDate date) {
