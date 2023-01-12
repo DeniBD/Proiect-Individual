@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc5f5b62-18c7-461b-ae28-52eb03b90a02" name="Changes" comment="Update BETA">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/classes/SendEmail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/AutentificareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/AutentificareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/classes/SalaFilm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/classes/SalaFilm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/MeniuAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/MeniuAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/MeniuUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemabookingsystem/MeniuUser.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +254,7 @@
       <workItem from="1673425725737" duration="6616000" />
       <workItem from="1673437173107" duration="183000" />
       <workItem from="1673440264545" duration="5707000" />
-      <workItem from="1673453654386" duration="14724000" />
+      <workItem from="1673453654386" duration="40767000" />
     </task>
     <task id="LOCAL-00001" summary="Bază proiect FX + interfață pentru Autentificare/Înregistrare">
       <created>1669846723531</created>
@@ -342,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673457887652</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Update BETA">
+      <created>1673469652411</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1673469652411</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,21 +384,5 @@
     <MESSAGE value="BETA" />
     <MESSAGE value="Update BETA" />
     <option name="LAST_COMMIT_MESSAGE" value="Update BETA" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuAdminController.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/cinemabookingsystem/MeniuAdminController.java</url>
-          <line>201</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

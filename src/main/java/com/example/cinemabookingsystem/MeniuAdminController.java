@@ -21,6 +21,7 @@ import javafx.util.Callback;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -40,6 +41,7 @@ public class MeniuAdminController {
     private Map<LocalDate, List<Program>> map = getMap();
 
     private List<String> genuriSelectate = new ArrayList<>();
+    private Program programAles;
 
 
     @FXML
@@ -106,6 +108,24 @@ public class MeniuAdminController {
     @FXML
     private Label genuriCurenteAdaugareFilm;
 
+    //  Editare Program
+    @FXML
+    private Label titluFilmEditareProgram;
+    @FXML
+    private MenuButton tipFilmEditareProgram;
+    @FXML
+    private TextField oraInceputEditareProgram;
+    @FXML
+    private TextField minutInceputEditareProgram;
+    @FXML
+    private ImageView imgSrcEditareProgram;
+    @FXML
+    private Button butonEditareProgram;
+    @FXML
+    private Button butonStergereProgram;
+    @FXML
+    private Button butonStergereTotalaProgram;
+
 
 
 
@@ -136,14 +156,54 @@ public class MeniuAdminController {
         //System.out.println(map);
         return map;
     }
-    public void OnActionsButonSalvareAdaugaFilm() {
-       if(titluAdaugareFilm.getText().isEmpty() || durataAdaugareFilm.getText().isEmpty()) {
+    public void OnActionButonSalvareAdaugaFilm() throws SQLException {
+       if(titluAdaugareFilm.getText().isEmpty() || durataAdaugareFilm.getText().isEmpty() || genuriSelectate.size() == 0) {
            Alert alert;
            alert = new Alert(Alert.AlertType.INFORMATION);
            alert.setTitle("Mesaj de informare");
            alert.setContentText("Vă rugam completați toate câmpurile! ");
            alert.showAndWait();
        } else {
+           String sql = "INSERT INTO FILM (TITLU, SRC_POZA, DURATA) VALUES (?, ?, ?)";
+           try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+               pstmt.setString(1, titluAdaugareFilm.getText());
+               pstmt.setString(2, "avatar.jpg");
+               pstmt.setInt(3, Integer.parseInt(durataAdaugareFilm.getText()));
+
+               pstmt.execute();
+           }
+
+           int id_film;
+           sql = "SELECT ID_FILM FROM FILM WHERE TITLU = ? AND SRC_POZA = ? AND DURATA = ?";
+           try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+               pstmt.setString(1, titluAdaugareFilm.getText());
+               pstmt.setString(2, "avatar.jpg");
+               pstmt.setInt(3, Integer.parseInt(durataAdaugareFilm.getText()));
+
+               ResultSet resultSet = pstmt.executeQuery();
+               resultSet.next();
+               id_film = resultSet.getInt(1);
+           }
+
+           sql = "INSERT INTO GEN (ID_FILM, GEN) VALUES (?, ?)";
+           for(String gen : genuriSelectate) {
+               PreparedStatement pstmt = conn.prepareStatement(sql);
+               pstmt.setInt(1, id_film);
+               pstmt.setString(2, gen);
+               pstmt.execute();
+           }
+
+           Alert alert;
+           alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.setTitle("Mesaj de informare");
+           alert.setContentText("Filmul a fost adăugat cu succes!");
+           alert.showAndWait();
+
+           titluAdaugareFilm.setText("");
+           durataAdaugareFilm.setText("");
+           genuriCurenteAdaugareFilm.setText("");
+           genuriSelectate = new ArrayList<>();
+           adaugareGenuriMeniuItem(genuriAdaugareFilm, genuriCurenteAdaugareFilm);
        }
     }
     public void OnActionButonMinimizeMeniuAdmin() {
@@ -173,7 +233,7 @@ public class MeniuAdminController {
     }
     public void switchOptions(ActionEvent event) throws SQLException, IOException {
         if (event.getSource() == butonFilmeMeniuAdmin) {
-            //filmList = filmList(conn);
+            filmList = filmList(conn);
             generateGridFilme();
             adaugaFilme.setVisible(false);
             //adaugaPrograme.setVisible(false);
@@ -186,6 +246,7 @@ public class MeniuAdminController {
             alegeFormatul();
             alegeGenul();
             generateGridPrograme(LocalDate.now());
+            calendar.setValue(null);
             adaugaFilme.setVisible(false);
             //adaugaPrograme.setVisible(false);
             editareStergereFilme.setVisible(false);
@@ -470,13 +531,46 @@ public class MeniuAdminController {
         }
         return map;
     }
+    public void adaugareTipuriFilmeMeniuItem() {
+        if(tipFilmEditareProgram.getItems().size() != 0) {
+            tipFilmEditareProgram.getItems().remove(0);
+            tipFilmEditareProgram.getItems().remove(0);
+        }
+
+        MenuItem menuItem1 = new MenuItem();
+        menuItem1.setText("2D");
+        menuItem1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                tipFilmEditareProgram.setText("2D");
+            }
+        });
+
+        MenuItem menuItem2 = new MenuItem();
+        menuItem2.setText("3D");
+        menuItem2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                tipFilmEditareProgram.setText("3D");
+            }
+        });
+
+        tipFilmEditareProgram.getItems().addAll(menuItem1, menuItem2);
+    }
     private void setOnActionButonFilmDinProgram(Button button, Film film, Program program) {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                programAles = program;
+                adaugareTipuriFilmeMeniuItem();
+                titluFilmEditareProgram.setText(program.getFilm().getTitlu());
+                tipFilmEditareProgram.setText(program.getTipFilm() == TipFilm.DOI_D ? "2D" : "3D");
+                oraInceputEditareProgram.setPromptText(program.getOraInceput() + "");
+                minutInceputEditareProgram.setPromptText(program.getMinutInceput() + "");
+                imgSrcEditareProgram.setImage(new Image("file:" + program.getFilm().getImgSrc()));
+
                 editareStergerePrograme.setVisible(false);
                 editareProgram.setVisible(true);
-
             }
         });
     }
@@ -813,5 +907,93 @@ public class MeniuAdminController {
         });
         alegeGenul.getItems().add(item);
 
+    }
+
+    @FXML
+    void onActionButonEditareProgram(ActionEvent event) {
+        String sql1 = "UPDATE PROGRAM SET ORA_INCEPUT = ?, MINUT_INCEPUT = ?, TIP_FILM = ? WHERE ID_PROGRAM = " + programAles.getId();
+        try (PreparedStatement pstmt1 = conn.prepareStatement(sql1)) {
+            if(!oraInceputEditareProgram.getText().isEmpty()) {
+                programAles.setOraInceput(Integer.parseInt(oraInceputEditareProgram.getText()));
+                pstmt1.setInt(1, Integer.parseInt(oraInceputEditareProgram.getText()));
+            } else {
+                pstmt1.setInt(1, programAles.getOraInceput());
+            }
+            if(!minutInceputEditareProgram.getText().isEmpty()) {
+                programAles.setMinutInceput(Integer.parseInt(minutInceputEditareProgram.getText()));
+                pstmt1.setInt(2, Integer.parseInt(minutInceputEditareProgram.getText()));
+            } else {
+                pstmt1.setInt(2, programAles.getMinutInceput());
+            }
+            programAles.setTipFilm(tipFilmEditareProgram.getText().equals("2D") ? TipFilm.DOI_D : TipFilm.TREI_D);
+            pstmt1.setString(3, tipFilmEditareProgram.getText());
+            pstmt1.execute();
+
+            Alert alert;
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Mesaj de informare");
+            alert.setContentText("Editare detalii program facută cu succes!");
+            alert.showAndWait();
+
+            oraInceputEditareProgram.setPromptText(programAles.getOraInceput() + "");
+            minutInceputEditareProgram.setPromptText(programAles.getMinutInceput() + "");
+            oraInceputEditareProgram.setText("");
+            minutInceputEditareProgram.setText("");
+
+            programsList = programsList(conn);
+            map = getMap();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onActionButonStergereTotalaProgram(ActionEvent event) throws SQLException {
+        String sql1 = "DELETE FROM CALENDAR_PROGRAM WHERE ID_PROGRAM = " + programAles.getId();
+        String sql2 = "DELETE FROM PROGRAM WHERE ID_PROGRAM = " + programAles.getId();
+
+        PreparedStatement pstmt1 = conn.prepareStatement(sql1);
+        pstmt1.execute();
+
+        pstmt1 = conn.prepareStatement(sql2);
+        pstmt1.execute();
+
+        Alert alert;
+        alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Mesaj de informare");
+        alert.setContentText("Ștergerea programului a fost facută cu succes!");
+        alert.showAndWait();
+
+        programsList = programsList(conn);
+        map = getMap();
+        generateGridPrograme(LocalDate.now());
+        calendar.setValue(null);
+
+        editareProgram.setVisible(false);
+        editareStergerePrograme.setVisible(true);
+    }
+
+    @FXML
+    void onActionButonStergereProgram(ActionEvent event) throws SQLException {
+        String sql1 = "DELETE FROM CALENDAR_PROGRAM WHERE ID_PROGRAM = ? AND DATA = ?";
+
+        PreparedStatement pstmt1 = conn.prepareStatement(sql1);
+        pstmt1.setInt(1, programAles.getId());
+        pstmt1.setDate(2, Date.valueOf(programAles.getData().toString()));
+        pstmt1.execute();
+
+        Alert alert;
+        alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Mesaj de informare");
+        alert.setContentText("Ștergerea programului a fost facută cu succes!");
+        alert.showAndWait();
+
+        programsList = programsList(conn);
+        map = getMap();
+        generateGridPrograme(LocalDate.now());
+        calendar.setValue(null);
+
+        editareProgram.setVisible(false);
+        editareStergerePrograme.setVisible(true);
     }
 }

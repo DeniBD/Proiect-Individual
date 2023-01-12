@@ -79,6 +79,7 @@ public class AutentificareController {
                         meniuUserController.alegeGenul();
                         meniuUserController.getCalendar().setDayCellFactory(meniuUserController.dayCellFactory);
                         meniuUserController.generateGrid(LocalDate.now());
+                        meniuUserController.resetCantitate();
                         meniuUserController.getUtilizatorConectat().setUsername(usernameAutentificare.getText());
                         meniuUserController.getUtilizatorConectat().setParola(parolaAutentificare.getText());
                         meniuUserController.getUtilizatorConectat().setNume(Objects.requireNonNull(utilizatorConectat(connect, usernameAutentificare.getText(), parolaAutentificare.getText())).getNume());

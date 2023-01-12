@@ -18,10 +18,14 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.Date;
 
 import static com.example.cinemabookingsystem.CinemaBookingSystem.moveTheScreen;
 import static com.example.cinemabookingsystem.CinemaBookingSystem.removeTheDefaultAntetBar;
@@ -93,23 +97,23 @@ public class MeniuUserController{
     @FXML
     private Label pretStudent;
     @FXML
-    private MenuButton cantitateAdult;
+    private TextField cantitateAdult;
 
     @FXML
-    private MenuButton cantitateCopil;
+    private TextField cantitateCopil;
 
     @FXML
-    private MenuButton cantitateElev;
+    private TextField cantitateElev;
     @FXML
     private MenuButton alegeFormatul;
     @FXML
     private MenuButton alegeGenul;
 
     @FXML
-    private MenuButton cantitatePensionar;
+    private TextField cantitatePensionar;
 
     @FXML
-    private MenuButton cantitateStudent;
+    private TextField cantitateStudent;
     @FXML
     private DatePicker calendar;
     @FXML
@@ -146,6 +150,10 @@ public class MeniuUserController{
     private TextField detaliiContPrenume;
     @FXML
     private Button salveazaDetaliiCont;
+    @FXML
+    private Label pretTotal;
+    @FXML
+    private Label locuriDisponibileProgramAles;
 
     private Connection conn = getConnection();
     private int locuriDeSelectat = 0;
@@ -156,14 +164,16 @@ public class MeniuUserController{
     private Utilizator utilizatorConectat = new Utilizator();
     private Program programAles = new Program();
     public void setProgramAles(Program programAles) throws SQLException {
-        this.programAles.setId(programAles.getId());
-        this.programAles.setData(programAles.getData());
-        this.programAles.setFilm(programAles.getFilm());
-        this.programAles.setMinutInceput(programAles.getMinutInceput());
-        this.programAles.setOraInceput(programAles.getOraInceput());
-        this.programAles.setNrBileteDisponibile(programAles.getNrBileteDisponibile());
-        this.programAles.setTipFilm(programAles.getTipFilm());
-        this.programAles.setSalaFilm(programAles.getSalaFilm());
+        this.programAles = programAles;
+
+//        this.programAles.setId(programAles.getId());
+//        this.programAles.setData(programAles.getData());
+//        this.programAles.setFilm(programAles.getFilm());
+//        this.programAles.setMinutInceput(programAles.getMinutInceput());
+//        this.programAles.setOraInceput(programAles.getOraInceput());
+//        this.programAles.setNrBileteDisponibile(programAles.getNrBileteDisponibile());
+//        this.programAles.setTipFilm(programAles.getTipFilm());
+//        this.programAles.setSalaFilm(programAles.getSalaFilm());
     }
     public void setUtilizatorConectat(Utilizator utilizatorConectat) {
         this.utilizatorConectat = utilizatorConectat;
@@ -177,11 +187,21 @@ public class MeniuUserController{
     }
     public void totalLocuriDeSelectat() {
         this.locuriDeSelectat = 0;
-        this.locuriDeSelectat += Integer.parseInt(cantitateCopil.getText());
-        this.locuriDeSelectat += Integer.parseInt(cantitateElev.getText());
-        this.locuriDeSelectat += Integer.parseInt(cantitateStudent.getText());
-        this.locuriDeSelectat += Integer.parseInt(cantitateAdult.getText());
-        this.locuriDeSelectat += Integer.parseInt(cantitatePensionar.getText());
+        if(!cantitateCopil.getText().isEmpty()) {
+            this.locuriDeSelectat += Integer.parseInt(cantitateCopil.getText());
+        }
+        if(!cantitateElev.getText().isEmpty()) {
+            this.locuriDeSelectat += Integer.parseInt(cantitateElev.getText());
+        }
+        if(!cantitateStudent.getText().isEmpty()) {
+            this.locuriDeSelectat += Integer.parseInt(cantitateStudent.getText());
+        }
+        if(!cantitateAdult.getText().isEmpty()) {
+            this.locuriDeSelectat += Integer.parseInt(cantitateAdult.getText());
+        }
+        if(!cantitatePensionar.getText().isEmpty()) {
+            this.locuriDeSelectat += Integer.parseInt(cantitatePensionar.getText());
+        }
     }
 
     public MeniuUserController() throws SQLException {
@@ -230,10 +250,11 @@ public class MeniuUserController{
         gridFiltrat(date, tipFilm, gen);
         alegeGenul.setText("ALEGE GENUL");
         alegeFormatul.setText("ALEGE FORMATUL");
+        // calendar.setValue(LocalDate.now());
+
 
     }
     public void gridFiltrat(LocalDate date, String tF, String g) {
-        GridPane gridPane = new GridPane();
 
         BorderPane borderPane = (BorderPane) meniuUser.getChildren().get(0);
         AnchorPane anchorPane1 = (AnchorPane) borderPane.getChildren().get(2);
@@ -367,6 +388,7 @@ public class MeniuUserController{
         return dateProgram;
     }
     public void OnActionButonSelecteazaLocurile() {
+        // System.out.println(cantitateCopil.getText());
         totalLocuriDeSelectat();
         if(locuriDeSelectat != 0) {
             generareListaLocuriSala();
@@ -381,12 +403,21 @@ public class MeniuUserController{
                 }
             }
 
-            butoaneLocuriSelectate = new ArrayList<>();
-            setOnActionButoaneSala();
+            Alert alert;
+            if(locuriDeSelectat > programAles.getNrBileteDisponibile()) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Mesaj de informare");
+                alert.setContentText("Numarul de bilete selectat este mai mare decat cel disponibil!");
+                alert.showAndWait();
+            } else {
 
-            tabelaPreturi.setVisible(false);
-            sala.setVisible(true);
-            LabelTotalLocuriDeSelectat.setText("Te rog selectează " + locuriDeSelectat + " locuri!");
+                butoaneLocuriSelectate = new ArrayList<>();
+                setOnActionButoaneSala();
+
+                tabelaPreturi.setVisible(false);
+                sala.setVisible(true);
+                LabelTotalLocuriDeSelectat.setText("Te rog selectează " + locuriDeSelectat + " locuri!");
+            }
         }
     }
 
@@ -422,8 +453,27 @@ public class MeniuUserController{
         sala.setVisible(false);
         tabelaPreturi.setVisible(true);
     }
+    public double pretTotal() {
+        double pret = 0;
+        if(programAles.getTipFilm() == TipFilm.DOI_D) {
+            pret += Double.parseDouble(cantitateCopil.getText()) * 21.5;
+            pret += Double.parseDouble(cantitateElev.getText()) * 24;
+            pret += Double.parseDouble(cantitateStudent.getText()) * 24;
+            pret += Double.parseDouble(cantitateAdult.getText()) * 29;
+            pret += Double.parseDouble(cantitatePensionar.getText()) * 23;
+        } else {
+            pret += Double.parseDouble(cantitateCopil.getText()) * 27;
+            pret += Double.parseDouble(cantitateElev.getText()) * 29.5;
+            pret += Double.parseDouble(cantitateStudent.getText()) * 29.5;
+            pret += Double.parseDouble(cantitateAdult.getText()) * 34.5;
+            pret += Double.parseDouble(cantitatePensionar.getText()) * 30.5;
+        }
+        return pret;
+    }
     public void OnActionButonPasulUrmator() {
         sala.setVisible(false);
+        pretTotal.setText(String.valueOf(pretTotal()));
+        pretTotal.setStyle("-fx-text-fill: red");
         formularPlata.setVisible(true);
     }
     public void OnActionButonMinimizeMeniuUser() {
@@ -441,11 +491,12 @@ public class MeniuUserController{
     }
     public void switchOptions(ActionEvent event) throws SQLException {
         if (event.getSource() == butonProgramFilme) {
-            LocalDate date = LocalDate.of(2023, 1, 8);
+            //LocalDate date = LocalDate.of(2023, 1, 8);
             pretList = pretList(conn);
             filmList = filmList(conn);
             pretList = pretList(conn);
-            generateGrid(date);
+            generateGrid(LocalDate.now());
+            calendar.setValue(null);
             contulMeu.setVisible(false);
             tabelaPreturi.setVisible(false);
             programFilme.setVisible(true);
@@ -503,8 +554,9 @@ public class MeniuUserController{
     public LocalDate getDate() {
         LocalDate selectedDate = calendar.getValue();
         //System.out.println(selectedDate);
-        if(selectedDate == null)
+        if(selectedDate == null) {
             return LocalDate.now();
+        }
         return selectedDate;
         //String formattedDate = selectedDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
@@ -701,6 +753,7 @@ public class MeniuUserController{
                 titluFilmDinProgram.setText(titlu);
                 String data = program.getData().toString() + " " + program.getOraInceput() + ":" + (program.getMinutInceput() == 0 ? "00" : program.getMinutInceput());
                 dataFilmDinProgram.setText(data);
+                locuriDisponibileProgramAles.setText(String.valueOf(programAles.getNrBileteDisponibile()));
                 for(Pret pret : pretList) {
                     if(pret.getTip_film() == program.getTipFilm()) {
                         copil.setText((program.getTipFilm() == TipFilm.DOI_D ? "2D": "3D"));
@@ -719,28 +772,6 @@ public class MeniuUserController{
                         if(pret.getTip_bilet() == TipUtilizator.PENSIONAR)
                             pretPensionar.setText(String.valueOf(pret.getPret()) + " lei");
                     }
-                }
-                for(int i = 1; i <= 15; i++) {
-                    MenuItem item = new MenuItem();
-                    item.setText(String.valueOf(i));
-                    cantitateCopil.getItems().add(item);
-                    setOnActionItemCantitate(item, cantitateCopil);
-                    MenuItem item2 = new MenuItem();
-                    item2.setText(String.valueOf(i));
-                    cantitateElev.getItems().add(item2);
-                    setOnActionItemCantitate(item2, cantitateElev);
-                    MenuItem item3 = new MenuItem();
-                    item3.setText(String.valueOf(i));
-                    cantitateStudent.getItems().add(item3);
-                    setOnActionItemCantitate(item3, cantitateStudent);
-                    MenuItem item4 = new MenuItem();
-                    item4.setText(String.valueOf(i));
-                    cantitateAdult.getItems().add(item4);
-                    setOnActionItemCantitate(item4, cantitateAdult);
-                    MenuItem item5 = new MenuItem();
-                    item5.setText(String.valueOf(i));
-                    cantitatePensionar.getItems().add(item5);
-                    setOnActionItemCantitate(item5, cantitatePensionar);
                 }
             }
 
@@ -936,7 +967,15 @@ public class MeniuUserController{
 
         }
     }
-    public void finalizareComanda() {
+    public void updateLocuriDisponibile() throws SQLException {
+        String sql = "UPDATE CALENDAR_PROGRAM SET NR_BILETE_DISPONIBILE = ? WHERE ID_PROGRAM = ? AND DATA = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, programAles.getNrBileteDisponibile());
+        ps.setInt(2, programAles.getId());
+        ps.setDate(3, java.sql.Date.valueOf(programAles.getData().toString()));
+        ps.execute();
+    }
+    public void finalizareComanda() throws SQLException {
         Alert alert;
         if(!radioButton.isSelected() || dataExpirare.getText().isEmpty() || numarCard.getText().isEmpty() || CVV2.getText().isEmpty()) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -971,8 +1010,48 @@ public class MeniuUserController{
                 ok = false;
             }
             if (ok == true) {
+                programAles.setNrBileteDisponibile(programAles.getNrBileteDisponibile()-locuriDeSelectat);
+                updateLocuriDisponibile();
                 resetCantitate();
+                calendar.setValue(null);
+                locuriDeSelectat = 0;
+                numarCard.setText("");
+                dataExpirare.setText("");
+                CVV2.setText("");
                 formularPlata.setVisible(false);
+
+//                Properties props = System.getProperties();
+//                props.put("mail.smtp.host", "587");
+//                Session session = Session.getDefaultInstance(props, null);
+//                try
+//                {
+//                    MimeMessage msg = new MimeMessage(session);
+//                    //set message headers
+//                    msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
+//                    msg.addHeader("format", "flowed");
+//                    msg.addHeader("Content-Transfer-Encoding", "8bit");
+//
+//                    msg.setFrom(new InternetAddress("no_reply@example.com", "NoReply-JD"));
+//
+//                    msg.setReplyTo(InternetAddress.parse("no_reply@example.com", false));
+//
+//                    msg.setSubject("subject", "UTF-8");
+//
+//                    msg.setText("body", "UTF-8");
+//
+//                    msg.setSentDate(new Date());
+//
+//                    msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("alexandru.bran02@e-uvt.to", false));
+//                    System.out.println("Message is ready");
+//                    Transport.send(msg);
+//
+//                    System.out.println("EMail Sent Successfully!!");
+//                }
+//                catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+
+                generateGrid(LocalDate.now());
                 programFilme.setVisible(true);
             }
         }

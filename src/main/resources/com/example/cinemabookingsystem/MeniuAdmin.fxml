@@ -133,7 +133,7 @@
                                 </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="adaugaFilme" prefHeight="633.6" prefWidth="915.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="adaugaFilme" prefHeight="633.6" prefWidth="915.2" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
                                 <AnchorPane prefHeight="38.0" prefWidth="914.0">
                                     <children>
@@ -167,7 +167,7 @@
                         </Label>
                         <TextField fx:id="titluAdaugareFilm" focusTraversable="false" layoutX="446.0" layoutY="135.0" prefHeight="30.0" prefWidth="318.0" />
                         <TextField fx:id="durataAdaugareFilm" focusTraversable="false" layoutX="446.0" layoutY="190.0" prefHeight="30.0" prefWidth="318.0" />
-                        <Button fx:id="salvareAdaugaFilm" layoutX="382.0" layoutY="480.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="Adaugare film">
+                        <Button fx:id="salvareAdaugaFilm" layoutX="382.0" layoutY="480.0" mnemonicParsing="false" onAction="#OnActionButonSalvareAdaugaFilm" prefHeight="35.0" prefWidth="150.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="Adaugare film">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -197,7 +197,7 @@
                            <children>
                               <AnchorPane layoutX="58.0" layoutY="45.0" styleClass="metoda-plata" stylesheets="@designMeniuUser.css">
                                  <children>
-                                    <ImageView fx:id="editareImgSrcProgram" fitHeight="251.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="imgSrcEditareProgram" fitHeight="251.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
                                  </children>
                               </AnchorPane>
                               <Label layoutX="341.0" layoutY="90.0" prefHeight="35.0" prefWidth="80.0" text="Film: ">
@@ -215,26 +215,36 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="butonEditareProgram" layoutX="421.0" layoutY="454.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="Editare program">
+                              <Button fx:id="butonEditareProgram" layoutX="621.0" layoutY="458.0" mnemonicParsing="false" onAction="#onActionButonEditareProgram" prefHeight="35.0" prefWidth="150.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="Editare program">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Button>
-                              <MenuButton fx:id="filme" layoutX="480.0" layoutY="90.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="MenuButton" />
-                              <MenuButton fx:id="tipuriFilme" layoutX="480.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="MenuButton" />
-                              <TextField fx:id="oraInceput" layoutX="480.0" layoutY="180.0" prefHeight="30.0" prefWidth="318.0" />
-                              <TextField fx:id="minutInceput" layoutX="480.0" layoutY="225.0" prefHeight="30.0" prefWidth="318.0" />
+                              <MenuButton fx:id="tipFilmEditareProgram" layoutX="480.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="MenuButton" />
+                              <TextField fx:id="oraInceputEditareProgram" layoutX="480.0" layoutY="180.0" prefHeight="30.0" prefWidth="318.0" />
+                              <TextField fx:id="minutInceputEditareProgram" layoutX="480.0" layoutY="225.0" prefHeight="30.0" prefWidth="318.0" />
                               <Label layoutX="341.0" layoutY="225.0" prefHeight="35.0" prefWidth="118.0" text="Minut început:">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="341.0" layoutY="270.0" prefHeight="35.0" prefWidth="100.0" text="Sală film: ">
+                              <Label layoutX="341.0" layoutY="270.0" prefHeight="35.0" prefWidth="100.0" text="Sală film: " visible="false">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <MenuButton fx:id="saliFilme" layoutX="480.0" layoutY="275.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="MenuButton" />
+                              <MenuButton fx:id="saliFilme" layoutX="480.0" layoutY="275.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="318.0" text="MenuButton" visible="false" />
+                              <Button fx:id="butonStergereTotalaProgram" layoutX="361.0" layoutY="458.0" mnemonicParsing="false" onAction="#onActionButonStergereTotalaProgram" prefHeight="35.0" prefWidth="195.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="Stergere totala program">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="titluFilmEditareProgram" layoutX="480.0" layoutY="90.0" prefHeight="30.0" prefWidth="318.0" />
+                              <Button fx:id="butonStergereProgram" layoutX="152.0" layoutY="458.0" mnemonicParsing="false" onAction="#onActionButonStergereProgram" prefHeight="35.0" prefWidth="150.0" styleClass="save-btn" stylesheets="@designMeniuUser.css" text="Stergere program">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>
@@ -289,7 +299,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="editareStergereFilme" prefHeight="634.4" prefWidth="915.2" visible="false">
+                  <AnchorPane fx:id="editareStergereFilme" prefHeight="634.4" prefWidth="915.2">
                      <children>
                         <AnchorPane prefHeight="38.0" prefWidth="914.0">
                            <children>

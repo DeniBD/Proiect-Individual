@@ -4,6 +4,7 @@ import com.example.cinemabookingsystem.classes.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -166,13 +167,22 @@ public class DatabaseConnection {
             int minutInceput = resultSet1.getInt("MINUT_INCEPUT");
             String tipFilm = resultSet1.getString("TIP_FILM");
             TipFilm tF = tipFilm.equals("3D") ? TipFilm.TREI_D : TipFilm.DOI_D;
-            int nrBileteDisponibile = resultSet1.getInt("NR_BILETE_DISPONIBILE");
+            /////////////////////////////////////////////////////////////////////////////
+            // int nrBileteDisponibile = resultSet1.getInt("NR_BILETE_DISPONIBILE");
 
             String locuriOcupate = resultSet1.getString("LOCURI_OCUPATE");
             String[] locuri = locuriOcupate.split(", ", 0);
 
             List<LocalDate> dates = returnCalendarProgram(idProgram, getConnection());
             for (LocalDate d : dates) {
+                String query4 = "SELECT NR_BILETE_DISPONIBILE FROM CALENDAR_PROGRAM WHERE ID_PROGRAM = ? AND DATA = ?";
+                PreparedStatement ps = con.prepareStatement(query4);
+                ps.setInt(1, idProgram);
+                ps.setDate(2, Date.valueOf(d.toString()));
+                ResultSet resultSet4 = ps.executeQuery();
+                resultSet4.next();
+                int nrBileteDisponibile = resultSet4.getInt("NR_BILETE_DISPONIBILE");
+
                 SalaFilm salaFilm = new SalaFilm();
                 Class c = salaFilm.getClass();
                 for(int i = 0; i < locuri.length; i++) {
